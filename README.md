@@ -5,7 +5,7 @@
 ## To Do List:
 
 - [ ] 로그인페이지
-- [ ] 스플래시
+- [X] 스플래시
 - [ ] 회원가입
 - [ ] API 확인
 - [ ] 레이드개설 페이지
@@ -16,9 +16,9 @@
 
 ## 작업환경
 
-OS: Mac OS
-Editor: VS Code
-Front: React Native
-Back: Node JS
-Server: AMAZON
-DB: AMAZON MySQL
+- OS: Mac OS
+- Editor: VS Code
+- Front: React Native
+- Back: Node JS
+- Server: AMAZON
+- DB: AMAZON MySQL
