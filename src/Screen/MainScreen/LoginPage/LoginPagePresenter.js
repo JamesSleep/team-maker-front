@@ -60,7 +60,7 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default () => (
+export default ({ navigation }) => (
   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <Container>
       <IamgeView>
@@ -77,7 +77,7 @@ export default () => (
           </TouchableOpacity>
         </ButtonContainer>
         <ButtonContainer>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
             <Button buttonColor={TextColor}>
               <ButtonText textColor={"#2f3640"}>회원가입</ButtonText>
             </Button>

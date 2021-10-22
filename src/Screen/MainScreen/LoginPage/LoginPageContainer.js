@@ -1,8 +1,10 @@
 import React from "react";
 import LoginPagePresenter from "./LoginPagePresenter";
 
-export default () => {
+export default ({ navigation }) => {
   return (
-    <LoginPagePresenter />
+    <LoginPagePresenter 
+      navigation={navigation}
+    />
   )
 }

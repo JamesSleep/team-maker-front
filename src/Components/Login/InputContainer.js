@@ -21,6 +21,7 @@ const InputView = styled.View`
 `;
 
 const TextInput = styled.TextInput`
+  width: 100%;
   height: ${_WIDTH * 0.125}px;
   padding-left: 7px;
   font-size: 17px;
