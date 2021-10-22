@@ -4,14 +4,9 @@ import SplashScreen from 'react-native-splash-screen';
 import { NavigationContainer } from "@react-navigation/native";
 import StackRouter from './src/router/StackRouter';
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar, Platform } from 'react-native';
 
 const App = () => {
-  /* const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  }; */
-
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
@@ -20,6 +15,16 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
+      {
+        Platform.OS === "android" ?
+        (<StatusBar 
+          backgroundColor="transparent"
+          translucent={true}
+        />) :
+        (<StatusBar 
+          barStyle="light-content"
+        />)
+      }
       <NavigationContainer>
         <StackRouter />
       </NavigationContainer>
