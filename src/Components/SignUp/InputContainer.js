@@ -26,13 +26,15 @@ const TextInput = styled.TextInput`
   font-size: 17px;
 `;
 
-export default () => (
+export default ({ data, setData }) => (
   <Container>
     <InputView>
       <TextInput 
-        placeholder="캐릭터 닉네임"
+        placeholder="모임 이름"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
+        value={data.guild}
+        onChangeText={text => setData("guild", text)}
       />
     </InputView>
     <InputView>
@@ -40,6 +42,8 @@ export default () => (
         placeholder="이메일"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
+        value={data.email}
+        onChangeText={text => setData("email", text)}
       />
     </InputView>
     <InputView>
@@ -47,6 +51,9 @@ export default () => (
         placeholder="비밀번호"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
+        secureTextEntry
+        value={data.password}
+        onChangeText={text => setData("password", text)}
       />
     </InputView>
     <InputView>
@@ -54,6 +61,9 @@ export default () => (
         placeholder="비밀번호 확인"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
+        secureTextEntry
+        value={data.passwordCheck}
+        onChangeText={text => setData("passwordCheck", text)}
       />
     </InputView>
   </Container>

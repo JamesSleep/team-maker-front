@@ -16,6 +16,6 @@ const Title = styled.Text`
 
 export default () => (
   <Container>
-    <Title></Title>
+    <Title>로그인</Title>
   </Container>
 )

@@ -4,7 +4,7 @@ import TitleView from "../../../Components/Login/TitleView";
 import InputContainer from "../../../Components/Login/InputContainer";
 import OptionContainer from "../../../Components/Login/OptionContainer";
 import { _WIDTH, ButtonColor, TextColor } from "../../../Common/theme";
-import { TouchableWithoutFeedback, Keyboard, TouchableOpacity } from "react-native";
+import { TouchableWithoutFeedback, Keyboard, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
 
 const Container = styled.View`
   width: 100%;
@@ -60,31 +60,36 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default ({ navigation }) => (
-  <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <Container>
-      <IamgeView>
-        <Image source={require("../../../images/loginback.png")} />
-      </IamgeView>
-      <Cover>
-        <TitleView />
-        <InputContainer />
-        <ButtonContainer>
-          <TouchableOpacity>
-            <Button buttonColor={ButtonColor}>
-              <ButtonText textColor={TextColor}>로그인</ButtonText>
-            </Button>
-          </TouchableOpacity>
-        </ButtonContainer>
-        <ButtonContainer>
-          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-            <Button buttonColor={TextColor}>
-              <ButtonText textColor={"#2f3640"}>회원가입</ButtonText>
-            </Button>
-          </TouchableOpacity>
-        </ButtonContainer>
-        <OptionContainer />
-      </Cover>
-    </Container>
-  </TouchableWithoutFeedback>
+export default ({ navigation, postLoginData }) => (
+  <KeyboardAvoidingView
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    keyboardVerticalOffset={-_WIDTH * 0.05}
+  >
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <Container>
+        <IamgeView>
+          <Image source={require("../../../images/loginback.png")} />
+        </IamgeView>
+        <Cover>
+          <TitleView />
+          <InputContainer />
+          <ButtonContainer>
+            <TouchableOpacity onPress={() => postLoginData()}>
+              <Button buttonColor={ButtonColor}>
+                <ButtonText textColor={TextColor}>로그인</ButtonText>
+              </Button>
+            </TouchableOpacity>
+          </ButtonContainer>
+          <ButtonContainer>
+            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+              <Button buttonColor={TextColor}>
+                <ButtonText textColor={"#2f3640"}>회원가입</ButtonText>
+              </Button>
+            </TouchableOpacity>
+          </ButtonContainer>
+          <OptionContainer />
+        </Cover>
+      </Container>
+    </TouchableWithoutFeedback>
+  </KeyboardAvoidingView>
 )
