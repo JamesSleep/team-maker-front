@@ -45,7 +45,7 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default ({ navigation, postData, data, setData }) => (
+export default ({ navigation, postData, data, setData, valid, setValid, setFirst }) => (
   <KeyboardAvoidingView
     behavior={Platform.OS === "ios" ? "padding" : null}
   >
@@ -58,7 +58,9 @@ export default ({ navigation, postData, data, setData }) => (
         </BackButton>
         <TitleView />
         <InputContainer 
-          data={data} setData={setData}
+          data={data} 
+          setData={setData}
+          valid={valid}
         />
         <ButtonContainer>
           <TouchableOpacity onPress={() => postData()}>

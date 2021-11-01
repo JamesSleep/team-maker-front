@@ -12,6 +12,7 @@ const getData = async (path, param) => {
     const {
       data: data
     } = await getRequest(path, param);
+    console.log(data);
     return data;
   } catch (e) {
     console.log(e);
@@ -24,9 +25,11 @@ const postData = async (path, param) => {
     const {
       data: data
     } = await postRequest(path, param);
+    console.log(data);
     return data;
   } catch (e) {
     console.log(e);
+    //에러발생 메시지 만들기
     return [null, e];
   }
 }
