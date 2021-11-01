@@ -60,10 +60,10 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default ({ navigation, postLoginData }) => (
+export default ({ navigation, postLoginData, data, setData }) => (
   <KeyboardAvoidingView
-    behavior={Platform.OS === "ios" ? "padding" : "height"}
-    keyboardVerticalOffset={-_WIDTH * 0.05}
+    behavior={Platform.OS === "ios" ? "padding" : null}
+    keyboardVerticalOffset={-_WIDTH * 0.1}
   >
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
@@ -72,7 +72,9 @@ export default ({ navigation, postLoginData }) => (
         </IamgeView>
         <Cover>
           <TitleView />
-          <InputContainer />
+          <InputContainer 
+            data={data} setData={setData}
+          />
           <ButtonContainer>
             <TouchableOpacity onPress={() => postLoginData()}>
               <Button buttonColor={ButtonColor}>

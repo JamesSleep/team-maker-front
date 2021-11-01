@@ -27,22 +27,27 @@ const TextInput = styled.TextInput`
   font-size: 17px;
 `;
 
-export default () => (
+export default ({ data, setData }) => (
   <Container>
     <InputView>
       <Icon name="mail-outline" color="#e5e9f2" size={_WIDTH * 0.06} />
-      <TextInput 
+      <TextInput
+        value={data.email} 
         placeholder="Email"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
+        onChangeText={text => setData({...data, email: text})}
       />
     </InputView>
     <InputView>
       <Icon name="lock-outline" color="#e5e9f2" size={_WIDTH * 0.06} />
       <TextInput 
+        value={data.password}
+        secureTextEntry
         placeholder="Password"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
+        onChangeText={text => setData({...data, password: text})}
       />
     </InputView>
   </Container>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
-import { _WIDTH } from "../../Common/theme";
+import { _WIDTH, ButtonColor } from "../../Common/theme";
+import { Keyboard } from "react-native";
 
 const Container = styled.View`
   width: 100%;
@@ -11,12 +12,12 @@ const InputView = styled.View`
   width: 100%;
   height: ${_WIDTH * 0.13}px;
   padding-left: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   border-color: #E42346;
   border-width: 1px;
   border-radius: 30px;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  
 `;
 
 const TextInput = styled.TextInput`
@@ -26,17 +27,13 @@ const TextInput = styled.TextInput`
   font-size: 17px;
 `;
 
-export default ({ data, setData }) => (
+const ValidText = styled.Text`
+  color: #e67e22;
+  margin-top: 3px;
+`;
+
+export default ({ data, setData, valid }) => (
   <Container>
-    <InputView>
-      <TextInput 
-        placeholder="모임 이름"
-        placeholderTextColor="rgba(245,246,250, 0.5)"
-        color="#e5e9f2"
-        value={data.guild}
-        onChangeText={text => setData("guild", text)}
-      />
-    </InputView>
     <InputView>
       <TextInput 
         placeholder="이메일"
@@ -44,27 +41,36 @@ export default ({ data, setData }) => (
         color="#e5e9f2"
         value={data.email}
         onChangeText={text => setData("email", text)}
+        onSubmitEditing={() => console.log("test2")}
       />
+      { !valid.email && (<ValidText>올바른 이메일 주소를 입력하세요.</ValidText>) }
     </InputView>
     <InputView>
       <TextInput 
         placeholder="비밀번호"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
-        secureTextEntry
         value={data.password}
         onChangeText={text => setData("password", text)}
+        textContentType={'newPassword'}
+        selectTextOnFocus={true}
+        secureTextEntry={true}
       />
+      { !valid.password && (<ValidText>비밀번호는 6~20자 사이여야 합니다.</ValidText>) }
+      
     </InputView>
     <InputView>
       <TextInput 
         placeholder="비밀번호 확인"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
-        secureTextEntry
         value={data.passwordCheck}
         onChangeText={text => setData("passwordCheck", text)}
+        textContentType={'newPassword'}
+        selectTextOnFocus={true}
+        secureTextEntry={true}
       />
+      { !valid.passwordCheck && (<ValidText>비밀번호가 일치하지 않습니다.</ValidText>) }
     </InputView>
   </Container>
 )
