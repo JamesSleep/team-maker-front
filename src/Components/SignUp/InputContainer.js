@@ -17,7 +17,6 @@ const InputView = styled.View`
   border-width: 1px;
   border-radius: 30px;
   flex-direction: column;
-  
 `;
 
 const TextInput = styled.TextInput`
@@ -41,7 +40,7 @@ export default ({ data, setData, valid }) => (
         color="#e5e9f2"
         value={data.email}
         onChangeText={text => setData("email", text)}
-        onSubmitEditing={() => console.log("test2")}
+        keyboardType={'email-address'}
       />
       { !valid.email && (<ValidText>올바른 이메일 주소를 입력하세요.</ValidText>) }
     </InputView>
@@ -52,9 +51,9 @@ export default ({ data, setData, valid }) => (
         color="#e5e9f2"
         value={data.password}
         onChangeText={text => setData("password", text)}
-        textContentType={'newPassword'}
         selectTextOnFocus={true}
         secureTextEntry={true}
+        textContentType="oneTimeCode"
       />
       { !valid.password && (<ValidText>비밀번호는 6~20자 사이여야 합니다.</ValidText>) }
       
@@ -66,9 +65,9 @@ export default ({ data, setData, valid }) => (
         color="#e5e9f2"
         value={data.passwordCheck}
         onChangeText={text => setData("passwordCheck", text)}
-        textContentType={'newPassword'}
         selectTextOnFocus={true}
         secureTextEntry={true}
+        textContentType="oneTimeCode"
       />
       { !valid.passwordCheck && (<ValidText>비밀번호가 일치하지 않습니다.</ValidText>) }
     </InputView>

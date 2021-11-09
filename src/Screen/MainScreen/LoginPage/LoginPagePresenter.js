@@ -89,7 +89,7 @@ export default ({ navigation, postLoginData, data, setData }) => (
               </Button>
             </TouchableOpacity>
           </ButtonContainer>
-          <OptionContainer />
+          <OptionContainer navigation={navigation} />
         </Cover>
       </Container>
     </TouchableWithoutFeedback>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const URL = "http://192.168.0.15:3000";
 
-const getRequest = (path, params) => axios.get(`${URL}${path}`, params);
+const getRequest = (path, params) => axios.get(`${URL}${path}${params}`);
 const postRequest = (path, params) => axios.post(`${URL}${path}`, params, {
   headers: { "Content-Type": "application/json" }
 });
@@ -13,7 +13,7 @@ const getData = async (path, param) => {
       data: data
     } = await getRequest(path, param);
     console.log(data);
-    return data;
+    return [data.success, data.data];
   } catch (e) {
     console.log(e);
     return [null, e];
@@ -36,6 +36,9 @@ const postData = async (path, param) => {
 
 export const userAPI = {
   getAllUser: () => getData("/user/"),
+  getOneUser: query => getData("/user/findUser/", query),
+  findPassword: query => getData("/user/findPass/", query),
   login: query => postData("/user/login", query),
-  signUp: query => postData("/user/join", query)
+  signUp: query => postData("/user/join", query),
+  modify: query => postData("/user/modify", query)
 }
