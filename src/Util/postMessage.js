@@ -4,6 +4,15 @@ export const postMessage = (text) => {
   if(Platform.OS === "android") {
     ToastAndroid.show(text, ToastAndroid.SHORT);
   } else {
-    Alert.alert(text);
+    Alert.alert(
+      "",
+      text,
+      [
+        {
+          text: "확인",
+          style: "cancel"
+        }
+      ]
+    );
   }
 } 

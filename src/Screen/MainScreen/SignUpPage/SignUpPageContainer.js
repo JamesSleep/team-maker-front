@@ -43,7 +43,7 @@ export default ({ navigation }) => {
       console.log(result);
       console.log("complete");
     } else {
-      console.log("error");
+      console.log(result[1]);
     }
   }
 
@@ -65,7 +65,7 @@ export default ({ navigation }) => {
   }
 
   const passwordValidation = () => {
-    if (data.password.length > 5 && data.password.length < 17) return true;
+    if (data.password.length > 5 && data.password.length < 21) return true;
     else return false;
   }
 

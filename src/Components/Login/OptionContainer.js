@@ -15,9 +15,9 @@ const Text = styled.Text`
   font-size: ${_WIDTH * 0.04}px;
 `;
 
-export default () => (
+export default ({ navigation }) => (
   <Container>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate("Find")}>
       <Text>비밀번호를 잊어버리셨나요?</Text>
     </TouchableOpacity>
   </Container>
