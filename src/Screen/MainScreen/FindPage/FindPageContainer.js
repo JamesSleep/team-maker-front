@@ -68,7 +68,10 @@ export default ({ navigation }) => {
         const result = await userAPI.modify(postData);
         
         if (result) {
-          navigation.navigate("Login");
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Login' }],
+          });
         } else {
           return;
         }

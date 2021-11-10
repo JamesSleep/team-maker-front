@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SignUpPagePresenter from "./SignUpPagePresenter";
 import { userAPI } from "../../../Common/api";
+import { postMessage } from "../../../Util/postMessage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default ({ navigation }) => {
   const [data, setData] = useState({
@@ -29,9 +31,27 @@ export default ({ navigation }) => {
   }
 
   const postData = async () => {
-    if (!(valid.email && valid.password && valid.passwordCheck && first)) {
-      setFirst(true); return;
+    // 최초진행시
+    if (!first) {
+      const email = emailValidation();
+      const password = passwordValidation();
+      const passwordCheck = data.password === data.passwordCheck;
+
+      if (!(email && password && passwordCheck)) {
+        setFirst(true);
+        return;
+      }
     }
+
+    if (!(valid.email && valid.password && valid.passwordCheck)) return;
+
+    // 중복체크
+    const overlapCheck = await userAPI.getOneUser(data.email);
+    if (overlapCheck[0]) {
+      postMessage("중복된 이메일이 존재합니다");
+      return;
+    }
+
     const signUpData = JSON.stringify({
       "email": data.email,
       "password": data.password
@@ -40,10 +60,26 @@ export default ({ navigation }) => {
     const result = await userAPI.signUp(signUpData);
 
     if (result[0]) {
-      console.log(result);
-      console.log("complete");
+      console.log(result[1]);
+      const user = result[1];
+      await AsyncStorage.setItem("loginInfo", JSON.stringify({"token": user.auth_token}));
+      await AsyncStorage.setItem(
+        "userInfo",
+        JSON.stringify({
+          "email": data.email,
+          "password": data.password,
+          "guild": user.guild,
+        })
+      );
+      //탭 화면 넘어가기
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Option' }],
+      });
     } else {
       console.log(result[1]);
+      postMessage(result[1]);
+      return;
     }
   }
 

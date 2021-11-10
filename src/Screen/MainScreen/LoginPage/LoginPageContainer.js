@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import LoginPagePresenter from "./LoginPagePresenter";
 import { userAPI } from "../../../Common/api";
 import { postMessage } from "../../../Util/postMessage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default ({ navigation }) => {
   const [loginData, setLoginData] = useState({
     email: "", password: ""
   });
+
+  useEffect(() => {
+    autoLogin();
+  }, []);
 
   const postData = async () => {
     if (!validation()) return;
@@ -19,8 +24,32 @@ export default ({ navigation }) => {
     const result = await userAPI.login(data);
 
     console.log(result);
-    if (!result) postMessage("로그인정보를 확인해주세요");
-    else postMessage("로그인성공");
+    if (!result[0]) postMessage(result[1]);
+    else {
+      console.log(result[1]);
+      const user = result[1];
+      await AsyncStorage.setItem("loginInfo", JSON.stringify({ "token": user.auth_token }));
+      await AsyncStorage.setItem(
+        "userInfo",
+        JSON.stringify({
+          "email": loginData.email,
+          "password": loginData.password,
+          "guild": user.guild,
+        })
+      );
+      // 탭으로 이동
+      if (user.guild) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
+      } else {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Option' }],
+        });
+      }
+    }
   }
 
   const validation = () => {
@@ -33,6 +62,32 @@ export default ({ navigation }) => {
       return false;
     }
     return true;
+  }
+
+  const autoLogin = async () => {
+    const user = JSON.parse(await AsyncStorage.getItem("userInfo"));
+    if (!user) return;
+    const login = JSON.stringify({
+      "email": user.email,
+      "password": user.password
+    });
+    
+    const result = await userAPI.login(login);
+    console.log(result);
+    if (result[0]) {
+      const _user = result[1];
+      if (_user.guild) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
+      } else {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Option' }],
+        });
+      }
+    }
   }
 
   return (

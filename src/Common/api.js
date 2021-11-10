@@ -1,4 +1,5 @@
 import axios from "axios";
+import { postMessage } from "../Util/postMessage";
 
 const URL = "http://192.168.0.15:3000";
 
@@ -16,6 +17,7 @@ const getData = async (path, param) => {
     return [data.success, data.data];
   } catch (e) {
     console.log(e);
+    postMessage("서버에 접속할 수 없습니다");
     return [null, e];
   }
 }
@@ -26,9 +28,10 @@ const postData = async (path, param) => {
       data: data
     } = await postRequest(path, param);
     console.log(data);
-    return data;
+    return [data.success, data.data];
   } catch (e) {
     console.log(e);
+    postMessage("서버에 접속할 수 없습니다");
     //에러발생 메시지 만들기
     return [null, e];
   }
@@ -38,6 +41,7 @@ export const userAPI = {
   getAllUser: () => getData("/user/"),
   getOneUser: query => getData("/user/findUser/", query),
   findPassword: query => getData("/user/findPass/", query),
+  findGuild: query => getData("/user/findGuild/", query),
   login: query => postData("/user/login", query),
   signUp: query => postData("/user/join", query),
   modify: query => postData("/user/modify", query)
