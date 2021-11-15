@@ -17,7 +17,7 @@ const Text = styled.Text`
 
 export default ({ navigation }) => (
   <Container>
-    <TouchableOpacity onPress={() => navigation.navigate("Find")}>
+    <TouchableOpacity onPress={() => navigation.navigate({ name: "Find", params: { parent: "Login" } })}>
       <Text>비밀번호를 잊어버리셨나요?</Text>
     </TouchableOpacity>
   </Container>

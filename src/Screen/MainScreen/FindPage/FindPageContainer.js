@@ -3,7 +3,9 @@ import FindPagePresenter from "./FindPagePresenter";
 import { userAPI } from "../../../Common/api";
 import { postMessage } from "../../../Util/postMessage";
 
-export default ({ navigation }) => {
+export default ({ navigation, route }) => {
+  const parent = route.params.parent;
+
   const [data, setData] = useState({
     email: "",
     verify: "",
@@ -68,10 +70,17 @@ export default ({ navigation }) => {
         const result = await userAPI.modify(postData);
         
         if (result) {
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'Login' }],
-          });
+          if (parent === "Login") {
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Login' }],
+            });
+          } else {
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Menu' }],
+            });
+          }
         } else {
           return;
         }
@@ -91,6 +100,7 @@ export default ({ navigation }) => {
       setData={setData}
       visible={visible}
       visibleController={visibleController}
+      parent={parent}
     />
   )
 }

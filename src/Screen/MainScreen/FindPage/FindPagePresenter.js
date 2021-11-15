@@ -22,18 +22,22 @@ const BackButton = styled.View`
   margin-bottom: 30px;
 `;
 
-export default ({ navigation, data, setData, visible, visibleController }) => (
+export default ({ navigation, data, setData, visible, visibleController, parent }) => (
   <KeyboardAvoidingView
     behavior={Platform.OS === "ios" ? "padding" : null}
   >
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
-        <BackButton>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Icon name="arrow-back" size={_WIDTH * 0.09} color={TextColor} />
-          </TouchableOpacity>
-        </BackButton>
-        <TitleView />
+        { parent === "Login" && (
+          <>
+          <BackButton>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Icon name="arrow-back" size={_WIDTH * 0.09} color={TextColor} />
+            </TouchableOpacity>
+          </BackButton>
+          <TitleView />
+          </>
+        )}
         <InputContainer 
           visible={visible} data={data} setData={setData} visibleControlloer={visibleController}
         />

@@ -8,13 +8,15 @@ export default ({ navigation }) => {
   const [data, setData] = useState({
     email: "",
     password: "",
-    passwordCheck: ""
+    passwordCheck: "",
+    nickname: ""
   });
 
   const [valid, setValid] = useState({
     email: true,
     password: true,
-    passwordCheck: true
+    passwordCheck: true,
+    nickCheck: true
   });
 
   const [first, setFirst] = useState(false);
@@ -36,8 +38,9 @@ export default ({ navigation }) => {
       const email = emailValidation();
       const password = passwordValidation();
       const passwordCheck = data.password === data.passwordCheck;
+      const nickCheck = data.nickname.length > 0;
 
-      if (!(email && password && passwordCheck)) {
+      if (!(email && password && passwordCheck && nickCheck)) {
         setFirst(true);
         return;
       }
@@ -51,10 +54,15 @@ export default ({ navigation }) => {
       postMessage("중복된 이메일이 존재합니다");
       return;
     }
+    if (overlapCheck[1].nickname === data.nickname) {
+      postMessage("중복된 닉네임이 존재합니다");
+      return;
+    }
 
     const signUpData = JSON.stringify({
       "email": data.email,
-      "password": data.password
+      "password": data.password,
+      "nickname": data.nickname
     });
     
     const result = await userAPI.signUp(signUpData);
@@ -68,7 +76,8 @@ export default ({ navigation }) => {
         JSON.stringify({
           "email": data.email,
           "password": data.password,
-          "guild": user.guild,
+          "guild": null,
+          "nickname": data.nickname
         })
       );
       //탭 화면 넘어가기
@@ -87,7 +96,8 @@ export default ({ navigation }) => {
     setValid({ 
       email: emailValidation(),
       password: passwordValidation(),
-      passwordCheck: data.password == data.passwordCheck
+      passwordCheck: data.password == data.passwordCheck,
+      nickCheck: data.nickname.length > 0
     })
   }
 
