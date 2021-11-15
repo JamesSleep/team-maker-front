@@ -42,7 +42,9 @@ export const userAPI = {
   getOneUser: query => getData("/user/findUser/", query),
   findPassword: query => getData("/user/findPass/", query),
   findGuild: query => getData("/user/findGuild/", query),
+  delete: query => getData("/user/delete/", query),
   login: query => postData("/user/login", query),
   signUp: query => postData("/user/join", query),
-  modify: query => postData("/user/modify", query)
+  modify: query => postData("/user/modify", query),
+  question: query => postData("/user/question", query)
 }
