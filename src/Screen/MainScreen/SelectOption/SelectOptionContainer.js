@@ -31,8 +31,14 @@ export default ({ navigation }) => {
     const userData = JSON.stringify({
       "email": userInfo.email,
       "password": userInfo.password,
-      "guild": data
+      "guild": data,
+      "nickname": userInfo.nickname
     });
+    console.log("디버깅",userData);
+    await AsyncStorage.setItem(
+      "userInfo",
+      userData
+    );
     const result = await userAPI.modify(userData);
     if (result[0]) {
       navigation.reset({

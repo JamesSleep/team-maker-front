@@ -3,10 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Main from "../Screen/TabScreen/Main/RaidList";
 import MakeRaid from "../Screen/TabScreen/MakeRaid/SelectRaid";
 import MyInfo from "../Screen/TabScreen/MyInfo/JoinedList";
-import Setting from "../Screen/TabScreen/Setting/MenuList";
+import Setting from "./SettingRouter";
 import Icon from "react-native-vector-icons/AntDesign";
 import { TextColor, InputColor, _WIDTH, ButtonColor, _HEIGHT } from "../Common/theme";
-import { StyleSheet, Platform } from "react-native";
+import { Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -50,12 +50,3 @@ export default ({ navigation }) => {
     </Tab.Navigator>
   )
 }
-
-const styles = StyleSheet.create({
-  tabBar: {
-    height: _WIDTH*0.1,
-  },
-  label: {
-    fontSize: _WIDTH / 40,
-  },
-});

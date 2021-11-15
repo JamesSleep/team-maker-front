@@ -35,6 +35,7 @@ export default ({ navigation }) => {
           "email": loginData.email,
           "password": loginData.password,
           "guild": user.guild,
+          "nickname": user.nickname,
         })
       );
       // 탭으로 이동
@@ -87,6 +88,8 @@ export default ({ navigation }) => {
           routes: [{ name: 'Option' }],
         });
       }
+    } else {
+      await AsyncStorage.removeItem("userInfo");
     }
   }
 

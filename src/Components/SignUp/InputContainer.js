@@ -71,5 +71,15 @@ export default ({ data, setData, valid }) => (
       />
       { !valid.passwordCheck && (<ValidText>비밀번호가 일치하지 않습니다.</ValidText>) }
     </InputView>
+    <InputView>
+      <TextInput 
+        placeholder="닉네임"
+        placeholderTextColor="rgba(245,246,250, 0.5)"
+        color="#e5e9f2"
+        value={data.nickname}
+        onChangeText={text => setData("nickname", text)}
+      />
+      { !valid.nickCheck && (<ValidText>닉네임을 입력하세요.</ValidText>) }
+    </InputView>
   </Container>
 )
