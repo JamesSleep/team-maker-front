@@ -38,7 +38,7 @@ const postData = async (path, param) => {
 }
 
 export const userAPI = {
-  getAllUser: () => getData("/user/"),
+  getAllUser: () => getData("/user", "/"),
   getOneUser: query => getData("/user/findUser/", query),
   findPassword: query => getData("/user/findPass/", query),
   findGuild: query => getData("/user/findGuild/", query),
@@ -47,4 +47,14 @@ export const userAPI = {
   signUp: query => postData("/user/join", query),
   modify: query => postData("/user/modify", query),
   question: query => postData("/user/question", query)
+}
+
+export const teamAPI = {
+  getAllTeam: () => getData("/team", "/"),
+  getOneTeam: query => getData("/team/findTeam/", query),
+  create: query => postData("/team/make/", query),
+}
+
+export const raidersAPI = {
+  create: query => postData("/raiders/make/", query),
 }
