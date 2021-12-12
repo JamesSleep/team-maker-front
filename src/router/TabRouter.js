@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Main from "../Screen/TabScreen/Main/RaidList";
-import MakeRaid from "../Screen/TabScreen/MakeRaid/SelectRaid";
+import HomeRouter from "./HomeRouter";
+import MakeRaid from "./MakeRouter";
 import MyInfo from "../Screen/TabScreen/MyInfo/JoinedList";
 import Setting from "./SettingRouter";
 import Icon from "react-native-vector-icons/AntDesign";
@@ -43,7 +43,7 @@ export default ({ navigation }) => {
         }
       })}
     >
-      <Tab.Screen name="Main" component={Main} />
+      <Tab.Screen name="Main" component={HomeRouter} />
       <Tab.Screen name="MakeRaid" component={MakeRaid} />
       <Tab.Screen name="MyInfo" component={MyInfo} />
       <Tab.Screen name="Setting" component={Setting} />    
