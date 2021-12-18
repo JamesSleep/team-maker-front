@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeRouter from "./HomeRouter";
 import MakeRaid from "./MakeRouter";
-import MyInfo from "../Screen/TabScreen/MyInfo/JoinedList";
+import MyInfo from "./MyInfoRouter";
 import Setting from "./SettingRouter";
 import Icon from "react-native-vector-icons/AntDesign";
 import { TextColor, InputColor, _WIDTH, ButtonColor, _HEIGHT } from "../Common/theme";

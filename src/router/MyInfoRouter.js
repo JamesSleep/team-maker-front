@@ -1,8 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TextColor, HeaderColor, _WIDTH } from "../Common/theme";
-import RaidList from "../Screen/TabScreen/Main/RaidList";
-import RaidDetail from "../Screen/TabScreen/Main/RaidDetail";
+import JoinList from "../Screen/TabScreen/MyInfo/JoinedList";
+import DetailJoin from "../Screen/TabScreen/MyInfo/DetailJoin";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,8 +20,8 @@ const StackRouter = () => {
         }
       })}
     >
-      <Stack.Screen name="RaidList" component={RaidList} options={{ title: "레이드목록" }}/>
-      <Stack.Screen name="RaidDetail" component={RaidDetail} options={{ title: "상세정보" }}/>
+      <Stack.Screen name="JoinList" component={JoinList} options={{ title: "참가목록" }}/>
+      <Stack.Screen name="DetailJoin" component={DetailJoin} options={{ title: "상세정보" }}/>
     </Stack.Navigator>
   )
 } 
