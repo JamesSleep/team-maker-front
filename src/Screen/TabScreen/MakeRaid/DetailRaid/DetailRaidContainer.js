@@ -14,7 +14,7 @@ export default ({ navigation, route }) => {
     charactor: null,
     class: null,
     date: null,
-    time: null
+    time: { text: null, hour: null }
   });
   const [leader, setLeader] = useState({
     loading: true,
@@ -54,14 +54,29 @@ export default ({ navigation, route }) => {
 
     const leaderName = leader.info.nickname;
 
+    const MonthArray = [
+      "1월", "2월", "3월", "4월", "5월", "6월",
+      "7월", "8월", "9월", "10월", "11월", "12월"
+    ];
+    let timestamp;
+    const thisDay = new Date();
+    thisDay.setFullYear(data.date.year);
+    thisDay.setMonth(data.date.month);
+    thisDay.setDate(data.date.date);
+    thisDay.setHours(data.time.hour);
+    thisDay.setMinutes(0);
+    thisDay.setSeconds(0);
+    timestamp = thisDay.getTime();
+
     const postData = JSON.stringify({
       "title": data.title,
       "leader": leaderName,
-      "start_date": `${data.date.month} ${data.date.date}일 ${data.date.day}`,
+      "start_date": `${MonthArray[data.date.month]} ${data.date.date}일 ${data.date.day}`,
       "type": raid,
       "description": data.description,
-      "time": data.time,
+      "time": data.time.text,
       "level": data.level,
+      "timestamp": timestamp.toString()
     });
 
     const result = await teamAPI.create(postData);
@@ -70,8 +85,10 @@ export default ({ navigation, route }) => {
       console.log(result);
       return;
     }
+
+    const leaderIndex = leader.info.index;
     const postRaider = JSON.stringify({
-      "member_index": leader.index,
+      "member_index": leaderIndex,
       "team_index": result[1].index,
       "char_name": data.charactor,
       "class": data.class
@@ -80,6 +97,10 @@ export default ({ navigation, route }) => {
     const result2 = await raidersAPI.create(postRaider);
 
     if (result2[0]) {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'RaidList' }],
+      });
       navigation.reset({
         index: 0,
         routes: [{ name: 'SelectRaid' }],

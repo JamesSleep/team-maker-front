@@ -50,9 +50,9 @@ const ClassName = styled.Text`
   font-weight: 700;
 `;
 
-export default ({ data, setData, leader }) => (
+export default ({ data, setData, leader, title }) => (
   <Container>
-    <ColumnTitle title="공대장 정보" />
+    <ColumnTitle title={title} />
     <InputView>
       <Text>{leader.nickname}</Text>
     </InputView>

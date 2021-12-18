@@ -80,10 +80,16 @@ const TimeText = styled.Text`
 `;
 
 const TimeArray = [
-  "10:00 AM", "11:00 AM", "12:00 AM", "1:00 PM",
-  "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM",
-  "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM",
-  "10:00 PM", "11:00 PM", "12:00 PM"
+  { text: "10:00 AM", hour: 10 }, { text: "11:00 AM", hour: 11 }, { text: "12:00 AM", hour: 12 }, 
+  { text: "1:00 PM", hour: 13 }, { text: "2:00 PM", hour: 14 }, { text: "3:00 PM", hour: 15 }, 
+  { text: "4:00 PM", hour: 16 }, { text: "5:00 PM", hour: 17 }, { text: "6:00 PM", hour: 18 }, 
+  { text: "7:00 PM", hour: 19 }, { text: "8:00 PM", hour: 20 }, { text: "9:00 PM", hour: 21 },
+  { text: "10:00 PM", hour: 22 }, { text: "11:00 PM", hour: 23 }, { text: "12:00 PM", hour: 24 },
+];
+
+const MonthArray = [
+  "1월", "2월", "3월", "4월", "5월", "6월",
+  "7월", "8월", "9월", "10월", "11월", "12월"
 ];
 
 export default ({ dateObj, page, setPage, data, setData }) => (
@@ -108,7 +114,7 @@ export default ({ dateObj, page, setPage, data, setData }) => (
           onPress={() => setData({...data, date: item})}
         >
           <DateBox>
-            <Month>{item.month}</Month>
+            <Month>{MonthArray[item.month]}</Month>
             <DateView selected={data.date===item}>
               <Date selected={data.date===item}>{item.date}</Date>
             </DateView>
@@ -133,8 +139,8 @@ export default ({ dateObj, page, setPage, data, setData }) => (
           key={index}
           onPress={() => setData({...data, time: item})}
         >
-          <TimeBox selected={data.time === item}>
-            <TimeText selected={data.time === item}>{item}</TimeText>
+          <TimeBox selected={data.time.text === item.text}>
+            <TimeText selected={data.time.text === item.text}>{item.text}</TimeText>
           </TimeBox>
         </TouchableOpacity>
       ))}

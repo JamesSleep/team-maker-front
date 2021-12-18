@@ -50,7 +50,7 @@ export default ({ raid, data, setData, leader, loading, dateObj, calanderPage, s
                 <SelectLevel raid={raid} option={data} setOption={setData} />
               )}
               <RaidTitle data={data} setData={setData} />
-              <LeaderColumn data={data} setData={setData} leader={leader} />
+              <LeaderColumn data={data} setData={setData} leader={leader} title={"공대장 정보"} />
               <DateSetting 
                 dateObj={dateObj} 
                 page={calanderPage} 
