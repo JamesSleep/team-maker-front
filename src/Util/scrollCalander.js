@@ -1,10 +1,5 @@
 import React from "react";
 
-const MonthArray = [
-  "1월", "2월", "3월", "4월", "5월", "6월",
-  "7월", "8월", "9월", "10월", "11월", "12월"
-];
-
 const DayArray = [
   "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"
 ]
@@ -12,6 +7,7 @@ const DayArray = [
 export const dateHandler = (page) => {
   let array = [];
   const today = new Date();
+  let year = today.getFullYear();
   let month = today.getMonth();
   let date = today.getDate() + (page * 5);
   let day = today.getDay() + (page * 5);
@@ -35,10 +31,14 @@ export const dateHandler = (page) => {
       }
     }
     if (day + i > 6) day = (day + i) % 7 - i;
-    if (month > 11) month = 0;
+    if (month > 11) {
+      month = 0;
+      year += 1;
+    }
 
     array.push({
-      month: MonthArray[month],
+      year: year,
+      month: month,
       date: date + i,
       day: DayArray[day + i]
     });
