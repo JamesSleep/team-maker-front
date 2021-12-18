@@ -96,7 +96,7 @@ const IconList = {
   "기타": require("../../images/etc_icon.png"),
 }
 
-export default ({ data, navigation, myName }) => (
+export default ({ data, navigation, myName, route }) => (
   <Container>
     <InfoColumn>
       <Icon source={IconList[data.type]} resizeMode="cover"  />
@@ -115,7 +115,13 @@ export default ({ data, navigation, myName }) => (
       <LevelView>
         <LevelText>{data.level}</LevelText>
       </LevelView>
-      <TouchableOpacity>
+      <TouchableOpacity 
+        onPress={() => {
+          route
+          ? navigation.navigate({ name: "DetailJoin", params: { teamInfo: data }})
+          : navigation.navigate({ name: "RaidDetail", params: { teamInfo: data }})
+        }}
+      >
         <JoinButton>
           <CountText>상세정보</CountText>
         </JoinButton>
