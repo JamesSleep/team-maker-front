@@ -7,6 +7,7 @@ export default ({ navigation }) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
   const [myName, setMyName] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     getData();
@@ -15,12 +16,15 @@ export default ({ navigation }) => {
   const getData = async () => {
     const result = await teamAPI.getAllTeam();
     if (!result[0]) return;
-
+    let array = result[1];
     if (filter != "") {
-      let array = result[1];
       array = array.filter(item => item.type === filter);
-      setData(array);
-    } else setData(result[1]);
+    }
+
+    const today = new Date();
+    const timestamp = today.getTime();
+    array = array.filter(item => item.timestamp >= timestamp);
+    setData(array);
 
     const UserInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
     setMyName(UserInfo.nickname);
@@ -33,6 +37,9 @@ export default ({ navigation }) => {
       filter={filter}
       setFilter={setFilter}
       nickname={myName}
+      refreshing={refreshing}
+      setRefreshing={setRefreshing}
+      getData={getData}
     />
   )
 }

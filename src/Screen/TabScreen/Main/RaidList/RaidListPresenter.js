@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { MainColor, TextColor, HeaderColor } from "../../../../Common/theme";
-import { TouchableOpacity, ScrollView } from "react-native";
+import { TouchableOpacity, ScrollView, RefreshControl } from "react-native";
 import RaidBox from "../../../../Components/RaidList/RaidBox";
 import RaidFilter from "../../../../Components/RaidList/RaidFilter";
 
@@ -22,11 +22,24 @@ const GarbageBox = styled.View`
   margin-bottom: 90px;
 `;
 
-export default ({ navigation, data, filter, setFilter, nickname }) => (
+export default ({ navigation, data, getData, filter, setFilter, nickname, refreshing, setRefreshing }) => (
   <Container>
     <Inner>
       <RaidFilter filter={filter} setFilter={setFilter} />
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl 
+            onRefresh={async() => {
+              setRefreshing(true);
+              await getData();
+              setRefreshing(false);
+            }}
+            refreshing={refreshing}
+            enabled={false}
+            tintColor={"white"}
+          />
+        }
+      >
         { data.map((item, index) => (
           <RaidBox 
             key={index} 
