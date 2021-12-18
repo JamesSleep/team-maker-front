@@ -1,7 +1,8 @@
 import axios from "axios";
 import { postMessage } from "../Util/postMessage";
 
-const URL = "http://192.168.0.15:3000";
+//const URL = "http://34.233.79.112:3000"; // amazon
+const URL = "http://192.168.0.15:3000"; //macbook
 
 const getRequest = (path, params) => axios.get(`${URL}${path}${params}`);
 const postRequest = (path, params) => axios.post(`${URL}${path}`, params, {
@@ -52,9 +53,13 @@ export const userAPI = {
 export const teamAPI = {
   getAllTeam: () => getData("/team", "/"),
   getOneTeam: query => getData("/team/findTeam/", query),
+  getAllTeamByMan: query => getData("/team/findTeamByMan/", query),
   create: query => postData("/team/make/", query),
+  remove: query => getData("/team/remove/", query)
 }
 
 export const raidersAPI = {
   create: query => postData("/raiders/make/", query),
+  getOneRaiders: query => getData("/raiders/", query),
+  remove: query => getData("/raiders/delete/", query),
 }
