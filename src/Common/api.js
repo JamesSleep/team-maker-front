@@ -1,8 +1,7 @@
 import axios from "axios";
 import { postMessage } from "../Util/postMessage";
 
-//const URL = "http://34.233.79.112:3000"; // amazon
-const URL = "http://192.168.0.15:3000"; //macbook
+const URL = "http://34.233.79.112:3000"; // amazon
 
 const getRequest = (path, params) => axios.get(`${URL}${path}${params}`);
 const postRequest = (path, params) => axios.post(`${URL}${path}`, params, {
