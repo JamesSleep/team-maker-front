@@ -38,7 +38,6 @@ export default ({ navigation }) => {
           "nickname": user.nickname,
         })
       );
-      // 탭으로 이동
       if (user.guild) {
         navigation.reset({
           index: 0,

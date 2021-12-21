@@ -11,7 +11,6 @@ export default ({ navigation }) => {
       func: () => navigation.navigate({ name: "PassFind", params: { parent: "Setting" } }) },
     { title: "팀 정보", icon: "flag", tint: true,
       func: () => navigation.navigate({ name: "TeamInfo", params: { userInfo: data.user } })},
-    { title: "알림설정", icon: "bells", tint: false },
   ];
   
   const SupItem = [
