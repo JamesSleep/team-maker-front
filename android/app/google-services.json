@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "977983238263",
+    "project_id": "team-maker-8011d",
+    "storage_bucket": "team-maker-8011d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977983238263:android:6285b6e0c254fd378b5672",
+        "android_client_info": {
+          "package_name": "com.team_maker_front"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977983238263-ockmesvohn1flrbfe44rv9t0b62fagno.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRYR63AnLBszJNPivRslapPlg236xQEsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977983238263-ockmesvohn1flrbfe44rv9t0b62fagno.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
