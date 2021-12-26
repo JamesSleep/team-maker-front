@@ -1,20 +1,9 @@
 # TEAM MAKER
 
-로스트아크 레이드매칭 시스템
+로스트아크 레이드매칭 시스템입니다.
 
-## To Do List:
+특정 모임이나 길드 내부 사람들끼리 편하게 파티모집이 가능하도록 설계되었습니다.
 
-- [X] 로그인페이지
-- [X] 스플래시
-- [X] 회원가입
-- [ ] API 확인
-- [ ] 레이드개설 페이지
-- [ ] 레이드정보 페이지
-- [ ] 내 정보
-- [ ] 환경설정
-- [ ] 메인페이지
-- [X] status fix
-- [ ] 비밀번호찾기
  
 ## 작업환경
 
@@ -22,5 +11,5 @@
 - Editor: VS Code
 - Front: React Native
 - Back: Node JS
-- Server: AMAZON
+- Server: AMAZON 
 - DB: AMAZON MySQL
