@@ -33,8 +33,15 @@
 
 ## 주요기능
 
+- 회원가입
+- 로그인
+- 비밀번호찾기
+- 레이드생성
+- 레이드참가/취소
+- 설정
 
+## 테스트계정 & APK
 
-
+## 개선사항
 
 [BackLink]: https://github.com/JamesSleep/team-maker-backend "Go Back"
