@@ -15,7 +15,7 @@
 
 - FrontEnd: React Native, styled-components
 - BackEnd: Nest JS, Typescript
-- BackEndRepository: 
+- BackEndRepository: [BackEnd][BackLink]
 - Server: AMAZON 
 - DB: AMAZON MySQL
 
@@ -33,3 +33,8 @@
 
 ## 주요기능
 
+
+
+
+
+[BackLink]: https://github.com/JamesSleep/team-maker-backend "Go Back"
