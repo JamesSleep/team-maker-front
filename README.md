@@ -41,7 +41,9 @@
 - 설정
 
 ## 테스트계정 & APK
+- APK파일: [APK Release][apklink]
 
 ## 개선사항
 
 [BackLink]: https://github.com/JamesSleep/team-maker-backend "Go Back"
+[apklink]: https://drive.google.com/drive/folders/1A-Bn0iCmdYqxV70NjDVcDSDTobYH4yGO?usp=sharing
