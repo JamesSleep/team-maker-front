@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RaidListPresenter from "./RaidListPresenter";
-import { teamAPI } from "../../../../Common/api";
+import { teamAPI, userAPI } from "../../../../Common/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default ({ navigation }) => {
@@ -14,9 +14,22 @@ export default ({ navigation }) => {
   }, [filter]);
 
   const getData = async () => {
+    const UserInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
     const result = await teamAPI.getAllTeam();
+    const Guild = await userAPI.findGuild(UserInfo.guild);
+
     if (!result[0]) return;
+
     let array = result[1];
+    let guildArray = Guild[1];
+
+    array = array.filter(item => {
+      for (let i=0; i<guildArray.length; i++) {
+        if (item.leader === guildArray[i].nickname)
+          return item;
+      }
+    });
+
     if (filter != "") {
       array = array.filter(item => item.type === filter);
     }
@@ -24,9 +37,8 @@ export default ({ navigation }) => {
     const today = new Date();
     const timestamp = today.getTime();
     array = array.filter(item => item.timestamp >= timestamp);
-    setData(array);
 
-    const UserInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
+    setData(array);
     setMyName(UserInfo.nickname);
   }
 

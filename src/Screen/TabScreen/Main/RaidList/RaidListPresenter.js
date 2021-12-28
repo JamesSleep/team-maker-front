@@ -22,7 +22,19 @@ const GarbageBox = styled.View`
   margin-bottom: 90px;
 `;
 
-export default ({ navigation, data, getData, filter, setFilter, nickname, refreshing, setRefreshing }) => (
+const Empty = styled.View`
+  width: 100%;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const EmptyText = styled.Text`
+  font-size: 20px;
+  color: ${TextColor};
+`;
+
+export default ({ navigation, data=[], getData, filter, setFilter, nickname, refreshing, setRefreshing }) => (
   <Container>
     <Inner>
       <RaidFilter filter={filter} setFilter={setFilter} />
@@ -40,6 +52,12 @@ export default ({ navigation, data, getData, filter, setFilter, nickname, refres
           />
         }
       >
+        { data.length < 1 && (
+          <Empty>
+            <EmptyText>{`등록된 레이드가 없습니다\n`}</EmptyText>
+            <EmptyText>새로운 레이드를 만들어보세요!</EmptyText>
+          </Empty>
+        )}
         { data.map((item, index) => (
           <RaidBox 
             key={index} 
