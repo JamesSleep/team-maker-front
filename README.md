@@ -79,7 +79,7 @@
 - ID: test01 ~ test10
 - PW: 1234
 
-## 개선사항
+
 
 [BackLink]: https://github.com/JamesSleep/team-maker-backend "Go Back"
 [apklink]: https://drive.google.com/drive/folders/1A-Bn0iCmdYqxV70NjDVcDSDTobYH4yGO?usp=sharing
