@@ -13,11 +13,11 @@
 
 ## 기술스택
 
-- FrontEnd: React Native, styled-components
-- BackEnd: Nest JS, Typescript
+- FrontEnd: <code>React Native</code> <code>styled-components</code>
+- BackEnd: <code>NestJS</code> <code>Typescript</code>
 - BackEndRepository: [BackEnd][BackLink]
-- Server: AMAZON 
-- DB: AMAZON MySQL
+- Server: <code>Amazon EC2</code>
+- DB: <code>Amazon MySQL</code>
 
 ## 서비스소개
 
