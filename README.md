@@ -38,16 +38,38 @@
 <details markdown="1">
 <summary>회원가입 & 로그인 & 비밀번호찾기</summary>
 
-<img src="/src/readme/raidlist.png" width="288px" height="592px"></img>
+<br/>
+<img src="/src/readme/login.png" width="288px" height="592px"></img>
+<img src="/src/readme/signup.png" width="288px" height="592px"></img>
+<img src="/src/readme/password.png" width="288px" height="592px"></img>
 
 </details>
+<details markdown="1">
+<summary>레이드생성</summary>
 
-- 레이드생성
-- 레이드참가/취소
-- 설정
+<br/>
+<img src="/src/readme/raidoption.png" width="288px" height="592px"></img>
+<img src="/src/readme/raidset1.png" width="288px" height="592px"></img>
+<img src="/src/readme/raidset2.png" width="288px" height="592px"></img>
 
+</details>
+<details markdown="1">
+<summary>레이드참가</summary>
+
+<br/>
 <img src="/src/readme/raidlist.png" width="288px" height="592px"></img>
+<img src="/src/readme/raidinfo.png" width="288px" height="592px"></img>
 
+</details>
+<details markdown="1">
+<summary>설정</summary>
+
+<br/>
+<img src="/src/readme/setmenu.png" width="288px" height="592px"></img>
+<img src="/src/readme/setting.png" width="288px" height="592px"></img>
+<img src="/src/readme/question.png" width="288px" height="592px"></img>
+
+</details>
 
 ## 테스트APK
 - 플레이스토어 등록 심사중이라 APK파일로 대체하였습니다.
