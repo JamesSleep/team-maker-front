@@ -35,13 +35,15 @@
 
 ## 주요기능
 
-- 회원가입
-- 로그인
-- 비밀번호찾기
+- 회원가입 & 로그인 & 비밀번호찾기
+
+<img src="/src/readme/raidlist.png" width="288px" height="592px"></img>
+
 - 레이드생성
 - 레이드참가/취소
 - 설정
-<img src="/src/readme/raidlist.png"></img>
+
+<img src="/src/readme/raidlist.png" width="288px" height="592px"></img>
 
 
 ## 테스트APK
