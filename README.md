@@ -40,8 +40,12 @@
 - 레이드참가/취소
 - 설정
 
-## 테스트계정 & APK
+## 테스트APK
 - APK파일: [APK Release][apklink]
+
+## 테스트계정
+- ID: test012
+- PW: 1234
 
 ## 개선사항
 
