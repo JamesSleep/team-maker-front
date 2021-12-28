@@ -35,9 +35,12 @@
 
 ## 주요기능
 
-- 회원가입 & 로그인 & 비밀번호찾기
+<details markdown="1">
+<summary>회원가입 & 로그인 & 비밀번호찾기</summary>
 
 <img src="/src/readme/raidlist.png" width="288px" height="592px"></img>
+
+</details>
 
 - 레이드생성
 - 레이드참가/취소
