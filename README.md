@@ -76,7 +76,7 @@
 - APK파일: [APK Release][apklink]
 
 ## 테스트계정
-- ID: test01 ~ test10
+- ID: test01 ~ test11
 - PW: 1234
 
 
