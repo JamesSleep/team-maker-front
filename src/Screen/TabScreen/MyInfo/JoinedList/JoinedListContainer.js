@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import JoinedListPresenter from "./JoinedListPresenter";
-import { teamAPI, userAPI } from "../../../../Common/api";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, {useState, useEffect} from 'react';
+import JoinedListPresenter from './JoinedListPresenter';
+import {teamAPI, userAPI} from '../../../../common/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default ({ navigation }) => {
+export default ({navigation}) => {
   const [filter, setFilter] = useState(true);
   const [data, setData] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
@@ -14,7 +14,7 @@ export default ({ navigation }) => {
   }, [filter]);
 
   const getData = async () => {
-    const userInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
+    const userInfo = JSON.parse(await AsyncStorage.getItem('userInfo'));
     const searchUser = await userAPI.getOneUser(userInfo.email);
     setUserInfo(searchUser[1]);
 
@@ -34,10 +34,10 @@ export default ({ navigation }) => {
       setData(array);
     }
     setLoading(false);
-  }
+  };
 
   return (
-    <JoinedListPresenter 
+    <JoinedListPresenter
       navigation={navigation}
       filter={filter}
       setFilter={setFilter}
@@ -46,5 +46,5 @@ export default ({ navigation }) => {
       loading={loading}
       setLoading={setLoading}
     />
-  )
-}
+  );
+};

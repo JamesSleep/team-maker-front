@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components/native";
-import { _WIDTH } from "../../Common/theme";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import React from 'react';
+import styled from 'styled-components/native';
+import { _WIDTH } from '../../common/theme';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Container = styled.View`
   width: 100%;
@@ -13,7 +13,7 @@ const InputView = styled.View`
   height: ${_WIDTH * 0.13}px;
   padding-left: 20px;
   margin-bottom: 30px;
-  border-color: #E42346;
+  border-color: #e42346;
   border-width: 1px;
   border-radius: 30px;
   flex-direction: row;
@@ -32,23 +32,23 @@ export default ({ data, setData }) => (
     <InputView>
       <Icon name="mail-outline" color="#e5e9f2" size={_WIDTH * 0.06} />
       <TextInput
-        value={data.email} 
+        value={data.email}
         placeholder="Email"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
-        onChangeText={text => setData({...data, email: text})}
+        onChangeText={text => setData({ ...data, email: text })}
       />
     </InputView>
     <InputView>
       <Icon name="lock-outline" color="#e5e9f2" size={_WIDTH * 0.06} />
-      <TextInput 
+      <TextInput
         value={data.password}
         secureTextEntry
         placeholder="Password"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
-        onChangeText={text => setData({...data, password: text})}
+        onChangeText={text => setData({ ...data, password: text })}
       />
     </InputView>
   </Container>
-)
+);

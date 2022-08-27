@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import RaidListPresenter from "./RaidListPresenter";
-import { teamAPI, userAPI } from "../../../../Common/api";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, {useState, useEffect} from 'react';
+import RaidListPresenter from './RaidListPresenter';
+import {teamAPI, userAPI} from '../../../../common/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default ({ navigation }) => {
+export default ({navigation}) => {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState("");
-  const [myName, setMyName] = useState("");
+  const [filter, setFilter] = useState('');
+  const [myName, setMyName] = useState('');
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default ({ navigation }) => {
   }, [filter]);
 
   const getData = async () => {
-    const UserInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
+    const UserInfo = JSON.parse(await AsyncStorage.getItem('userInfo'));
     const result = await teamAPI.getAllTeam();
     const Guild = await userAPI.findGuild(UserInfo.guild);
 
@@ -24,13 +24,12 @@ export default ({ navigation }) => {
     let guildArray = Guild[1];
 
     array = array.filter(item => {
-      for (let i=0; i<guildArray.length; i++) {
-        if (item.leader === guildArray[i].nickname)
-          return item;
+      for (let i = 0; i < guildArray.length; i++) {
+        if (item.leader === guildArray[i].nickname) return item;
       }
     });
 
-    if (filter != "") {
+    if (filter != '') {
       array = array.filter(item => item.type === filter);
     }
 
@@ -40,10 +39,10 @@ export default ({ navigation }) => {
 
     setData(array);
     setMyName(UserInfo.nickname);
-  }
+  };
 
   return (
-    <RaidListPresenter 
+    <RaidListPresenter
       navigation={navigation}
       data={data}
       filter={filter}
@@ -53,5 +52,5 @@ export default ({ navigation }) => {
       setRefreshing={setRefreshing}
       getData={getData}
     />
-  )
-}
+  );
+};

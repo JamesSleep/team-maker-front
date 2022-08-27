@@ -1,7 +1,20 @@
-import React from "react";
-import styled from "styled-components/native";
-import { HeaderColor, MainColor, _WIDTH, TextColor, SubColor, ButtonColor } from "../../../../Common/theme";
-import { TouchableOpacity, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  HeaderColor,
+  MainColor,
+  _WIDTH,
+  TextColor,
+  SubColor,
+  ButtonColor,
+} from '../../../../common/theme';
+import {
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 
 const Container = styled.View`
   width: 100%;
@@ -69,31 +82,33 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default ({ navigation, data, setData, postData }) => (
-  <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? "padding" : null}>
+export default ({navigation, data, setData, postData}) => (
+  <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
         <Inner>
           <Text>제목</Text>
           <TitleView>
-            <TitleInput 
+            <TitleInput
               value={data.title}
               onChangeText={text => setData({...data, title: text})}
             />
           </TitleView>
           <Text>내용</Text>
           <ContentView>
-            <ContentInput 
+            <ContentInput
               multiline
               value={data.content}
               onChangeText={text => setData({...data, content: text})}
             />
           </ContentView>
           <TouchableOpacity onPress={() => postData()}>
-            <Button><ButtonText>문의보내기</ButtonText></Button>
+            <Button>
+              <ButtonText>문의보내기</ButtonText>
+            </Button>
           </TouchableOpacity>
         </Inner>
       </Container>
     </TouchableWithoutFeedback>
   </KeyboardAvoidingView>
-)
+);

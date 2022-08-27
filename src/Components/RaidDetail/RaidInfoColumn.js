@@ -1,6 +1,11 @@
-import React from "react";
-import styled from "styled-components/native";
-import { TextColor, PlaceHolder, ButtonColor, TintColor } from "../../Common/theme";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  TextColor,
+  PlaceHolder,
+  ButtonColor,
+  TintColor,
+} from '../../common/theme';
 
 const Container = styled.View`
   padding-bottom: 20px;
@@ -53,7 +58,7 @@ const BlockText = styled.Text`
   font-size: 15px;
 `;
 
-export default ({ data }) => (
+export default ({data}) => (
   <Container>
     <Title>{data.title}</Title>
     <Leader>{data.leader}</Leader>
@@ -68,4 +73,4 @@ export default ({ data }) => (
     </BlockBox>
     <Description>{data.description}</Description>
   </Container>
-)
+);

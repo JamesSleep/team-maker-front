@@ -1,9 +1,16 @@
-import React from "react";
-import styled from "styled-components/native";
-import { SubColor, TextColor, TintColor, PlaceHolder, ButtonColor, _WIDTH } from "../../Common/theme";
-import { textCut } from "../../Util/textCut";
-import { TouchableOpacity } from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  SubColor,
+  TextColor,
+  TintColor,
+  PlaceHolder,
+  ButtonColor,
+  _WIDTH,
+} from '../../common/theme';
+import { textCut } from '../../util/textCut';
+import { TouchableOpacity } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Container = styled.View`
   width: 100%;
@@ -88,23 +95,23 @@ const CountText = styled.Text`
 `;
 
 const IconList = {
-  "발탄": require("../../images/baltan_icon.png"),
-  "비아키스": require("../../images/viakiss.png") ,
-  "쿠크세이튼": require("../../images/kukosaton_icon.png"),
-  "아브렐슈드": require("../../images/abrellsude_icon.png"),
-  "아르고스": require("../../images/argos_icon.png"),
-  "기타": require("../../images/etc_icon.png"),
-}
+  발탄: require('../../images/baltan_icon.png'),
+  비아키스: require('../../images/viakiss.png'),
+  쿠크세이튼: require('../../images/kukosaton_icon.png'),
+  아브렐슈드: require('../../images/abrellsude_icon.png'),
+  아르고스: require('../../images/argos_icon.png'),
+  기타: require('../../images/etc_icon.png'),
+};
 
 export default ({ data, navigation, myName, route }) => (
   <Container>
     <InfoColumn>
-      <Icon source={IconList[data.type]} resizeMode="cover"  />
+      <Icon source={IconList[data.type]} resizeMode="cover" />
       <TextBox>
         <Title>{textCut(data.title, 15)}</Title>
         <LeaderView>
           <Leader>{data.leader}</Leader>
-          { myName === data.leader && (
+          {myName === data.leader && (
             <FontAwesome name="user" size={_WIDTH * 0.04} color={TextColor} />
           )}
         </LeaderView>
@@ -115,11 +122,17 @@ export default ({ data, navigation, myName, route }) => (
       <LevelView>
         <LevelText>{data.level}</LevelText>
       </LevelView>
-      <TouchableOpacity 
+      <TouchableOpacity
         onPress={() => {
           route
-          ? navigation.navigate({ name: "DetailJoin", params: { teamInfo: data }})
-          : navigation.navigate({ name: "RaidDetail", params: { teamInfo: data }})
+            ? navigation.navigate({
+                name: 'DetailJoin',
+                params: { teamInfo: data },
+              })
+            : navigation.navigate({
+                name: 'RaidDetail',
+                params: { teamInfo: data },
+              });
         }}
       >
         <JoinButton>
@@ -128,4 +141,4 @@ export default ({ data, navigation, myName, route }) => (
       </TouchableOpacity>
     </ButtonColumn>
   </Container>
-)
+);

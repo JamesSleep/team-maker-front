@@ -1,7 +1,13 @@
-import React from "react";
-import styled from "styled-components/native";
-import ColumnTitle from "./ColumnTitle";
-import { _WIDTH, MainColor, SubColor, PlaceHolder, TextColor } from "../../Common/theme";
+import React from 'react';
+import styled from 'styled-components/native';
+import ColumnTitle from './ColumnTitle';
+import {
+  _WIDTH,
+  MainColor,
+  SubColor,
+  PlaceHolder,
+  TextColor,
+} from '../../common/theme';
 
 const Container = styled.View`
   margin-bottom: 20px;
@@ -44,25 +50,25 @@ const ContentInput = styled.TextInput`
   color: ${TextColor};
 `;
 
-export default ({ data, setData }) => (
+export default ({data, setData}) => (
   <Container>
     <ColumnTitle title="레이드 정보" />
     <InputView>
-      <TextInput 
+      <TextInput
         placeholder="제목"
         placeholderTextColor={PlaceHolder}
         value={data.title}
-        onChangeText={text=>setData({...data, title: text})}
+        onChangeText={text => setData({...data, title: text})}
       />
     </InputView>
     <ContentView>
-      <ContentInput 
+      <ContentInput
         placeholder="설명"
         placeholderTextColor={PlaceHolder}
         multiline
         value={data.description}
-        onChangeText={text=>setData({...data, description: text})}
+        onChangeText={text => setData({...data, description: text})}
       />
     </ContentView>
   </Container>
-)
+);

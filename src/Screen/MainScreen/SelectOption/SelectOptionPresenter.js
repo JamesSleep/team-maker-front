@@ -1,7 +1,13 @@
-import React from "react";
-import styled from "styled-components/native";
-import { _WIDTH, MainColor, InputColor, TextColor, ButtonColor } from "../../../Common/theme";
-import { TouchableOpacity } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  _WIDTH,
+  MainColor,
+  InputColor,
+  TextColor,
+  ButtonColor,
+} from '../../../common/theme';
+import { TouchableOpacity } from 'react-native';
 
 const Container = styled.View`
   width: 100%;
@@ -35,7 +41,7 @@ const TextInput = styled.TextInput`
   width: 100%;
   height: ${_WIDTH * 0.125}px;
   font-size: ${_WIDTH * 0.05}px;
-`
+`;
 
 const ButtonContainer = styled.View`
   width: 100%;
@@ -55,7 +61,7 @@ const Button = styled.View`
 `;
 
 const ButtonText = styled.Text`
-  color: ${props=>props.textColor};
+  color: ${props => props.textColor};
   font-size: ${_WIDTH * 0.05}px;
   font-weight: bold;
 `;
@@ -64,7 +70,7 @@ export default ({ postData, data, setData }) => (
   <Container>
     <Text>입장하실 팀명의 이름을 입력해주세요</Text>
     <InputView>
-      <TextInput 
+      <TextInput
         placeholder="팀명"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color={TextColor}
@@ -81,4 +87,4 @@ export default ({ postData, data, setData }) => (
       </TouchableOpacity>
     </ButtonContainer>
   </Container>
-)
+);

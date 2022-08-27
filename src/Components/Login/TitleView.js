@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components/native";
-import { _WIDTH } from "../../Common/theme";
+import React from 'react';
+import styled from 'styled-components/native';
+import { _WIDTH } from '../../common/theme';
 
 const Container = styled.View`
   width: 100%;
@@ -18,4 +18,4 @@ export default () => (
   <Container>
     <Title>로그인</Title>
   </Container>
-)
+);

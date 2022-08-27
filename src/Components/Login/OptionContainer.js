@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components/native";
-import { _WIDTH, TextColor } from "../../Common/theme";
-import { TouchableOpacity } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import { _WIDTH, TextColor } from '../../common/theme';
+import { TouchableOpacity } from 'react-native';
 
 const Container = styled.View`
   width: 100%;
@@ -17,8 +17,12 @@ const Text = styled.Text`
 
 export default ({ navigation }) => (
   <Container>
-    <TouchableOpacity onPress={() => navigation.navigate({ name: "Find", params: { parent: "Login" } })}>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate({ name: 'Find', params: { parent: 'Login' } })
+      }
+    >
       <Text>비밀번호를 잊어버리셨나요?</Text>
     </TouchableOpacity>
   </Container>
-)
+);

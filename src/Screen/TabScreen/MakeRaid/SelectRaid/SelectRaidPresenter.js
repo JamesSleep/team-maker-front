@@ -1,8 +1,13 @@
-import React from "react";
-import styled from "styled-components/native";
-import { MainColor, TextColor, HeaderColor, _WIDTH } from "../../../../Common/theme";
-import MenuColumn from "../../../../Components/Setting/MenuColumn";
-import { TouchableOpacity, ScrollView } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  MainColor,
+  TextColor,
+  HeaderColor,
+  _WIDTH,
+} from '../../../../common/theme';
+import MenuColumn from '../../../../components/Setting/MenuColumn';
+import {TouchableOpacity, ScrollView} from 'react-native';
 
 const Container = styled.View`
   flex: 1;
@@ -38,11 +43,11 @@ const Text = styled.Text`
   margin: 0px 0px 20px 20px;
 `;
 
-export default ({ data }) => (
+export default ({data}) => (
   <Container>
     <Inner>
       <ScrollView>
-        { data.map((item, index) => (
+        {data.map((item, index) => (
           <TouchableOpacity key={index} onPress={item.func}>
             <ImageView>
               <Image source={item.image} />
@@ -53,4 +58,4 @@ export default ({ data }) => (
       </ScrollView>
     </Inner>
   </Container>
-)
+);

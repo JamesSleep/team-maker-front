@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components/native";
-import { SubColor, _WIDTH, TextColor } from "../../Common/theme";
-import Icon from "react-native-vector-icons/FontAwesome";
+import React from 'react';
+import styled from 'styled-components/native';
+import {SubColor, _WIDTH, TextColor} from '../../common/theme';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Container = styled.View`
   flex-direction: row;
@@ -17,11 +17,11 @@ const Name = styled.Text`
   margin-right: 8px;
 `;
 
-export default ({ data, myName }) => (
+export default ({data, myName}) => (
   <Container>
     <Name>{data}</Name>
-    { myName === data && (
+    {myName === data && (
       <Icon name="user" size={_WIDTH * 0.055} color={TextColor} />
     )}
   </Container>
-)
+);

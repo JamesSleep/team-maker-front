@@ -1,10 +1,16 @@
-import React from "react";
-import styled from "styled-components/native";
-import TitleView from "../../../Components/Login/TitleView";
-import InputContainer from "../../../Components/Login/InputContainer";
-import OptionContainer from "../../../Components/Login/OptionContainer";
-import { _WIDTH, ButtonColor, TextColor } from "../../../Common/theme";
-import { TouchableWithoutFeedback, Keyboard, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import TitleView from '../../../components/Login/TitleView';
+import InputContainer from '../../../components/Login/InputContainer';
+import OptionContainer from '../../../components/Login/OptionContainer';
+import {_WIDTH, ButtonColor, TextColor} from '../../../common/theme';
+import {
+  TouchableWithoutFeedback,
+  Keyboard,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 
 const Container = styled.View`
   width: 100%;
@@ -16,7 +22,7 @@ const Cover = styled.View`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
   justify-content: flex-end;
   align-items: center;
@@ -55,26 +61,24 @@ const Button = styled.View`
 `;
 
 const ButtonText = styled.Text`
-  color: ${props=>props.textColor};
+  color: ${props => props.textColor};
   font-size: ${_WIDTH * 0.05}px;
   font-weight: bold;
 `;
 
-export default ({ navigation, postLoginData, data, setData }) => (
+export default ({navigation, postLoginData, data, setData}) => (
   <KeyboardAvoidingView
-    behavior={Platform.OS === "ios" ? "padding" : null}
+    behavior={Platform.OS === 'ios' ? 'padding' : null}
     keyboardVerticalOffset={-_WIDTH * 0.1}
   >
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
         <IamgeView>
-          <Image source={require("../../../images/loginback.png")} />
+          <Image source={require('../../../images/loginback.png')} />
         </IamgeView>
         <Cover>
           <TitleView />
-          <InputContainer 
-            data={data} setData={setData}
-          />
+          <InputContainer data={data} setData={setData} />
           <ButtonContainer>
             <TouchableOpacity onPress={() => postLoginData()}>
               <Button buttonColor={ButtonColor}>
@@ -83,9 +87,9 @@ export default ({ navigation, postLoginData, data, setData }) => (
             </TouchableOpacity>
           </ButtonContainer>
           <ButtonContainer>
-            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
               <Button buttonColor={TextColor}>
-                <ButtonText textColor={"#2f3640"}>회원가입</ButtonText>
+                <ButtonText textColor={'#2f3640'}>회원가입</ButtonText>
               </Button>
             </TouchableOpacity>
           </ButtonContainer>
@@ -94,4 +98,4 @@ export default ({ navigation, postLoginData, data, setData }) => (
       </Container>
     </TouchableWithoutFeedback>
   </KeyboardAvoidingView>
-)
+);

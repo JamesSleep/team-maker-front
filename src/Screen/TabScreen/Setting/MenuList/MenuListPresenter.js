@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components/native";
-import { MainColor, TextColor, HeaderColor } from "../../../../Common/theme";
-import MenuColumn from "../../../../Components/Setting/MenuColumn";
-import { TouchableOpacity } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import { MainColor, TextColor, HeaderColor } from '../../../../common/theme';
+import MenuColumn from '../../../../components/Setting/MenuColumn';
+import { TouchableOpacity } from 'react-native';
 
 const Container = styled.View`
   flex: 1;
@@ -29,25 +29,33 @@ const CategoryText = styled.Text`
 
 export default ({ MyInfoItem, SupItem, loading }) => (
   <Container>
-    { loading && (
+    {loading && (
       <Inner>
         <Category>
           <CategoryText>내 정보</CategoryText>
-          { MyInfoItem.map((item, index) => (
+          {MyInfoItem.map((item, index) => (
             <TouchableOpacity key={index} onPress={item.func}>
-              <MenuColumn title={item.title} icon={item.icon} tint={item.tint} />
+              <MenuColumn
+                title={item.title}
+                icon={item.icon}
+                tint={item.tint}
+              />
             </TouchableOpacity>
           ))}
         </Category>
         <Category>
           <CategoryText>지원</CategoryText>
-          { SupItem.map((item, index) => (
+          {SupItem.map((item, index) => (
             <TouchableOpacity key={index} onPress={item.func}>
-              <MenuColumn title={item.title} icon={item.icon} tint={item.tint} />
+              <MenuColumn
+                title={item.title}
+                icon={item.icon}
+                tint={item.tint}
+              />
             </TouchableOpacity>
           ))}
         </Category>
       </Inner>
     )}
   </Container>
-)
+);

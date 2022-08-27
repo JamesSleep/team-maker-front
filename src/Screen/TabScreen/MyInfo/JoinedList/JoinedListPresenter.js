@@ -1,8 +1,18 @@
-import React from "react";
-import styled from "styled-components/native";
-import { MainColor, TextColor, HeaderColor, PlaceHolder } from "../../../../Common/theme";
-import { TouchableOpacity, ScrollView, RefreshControl, ActivityIndicator } from "react-native";
-import RaidBox from "../../../../Components/RaidList/RaidBox";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  MainColor,
+  TextColor,
+  HeaderColor,
+  PlaceHolder,
+} from '../../../../common/theme';
+import {
+  TouchableOpacity,
+  ScrollView,
+  RefreshControl,
+  ActivityIndicator,
+} from 'react-native';
+import RaidBox from '../../../../components/RaidList/RaidBox';
 
 const Container = styled.View`
   flex: 1;
@@ -25,7 +35,7 @@ const FilterView = styled.View`
 `;
 
 const FilterText = styled.Text`
-  color: ${props => props.select ? TextColor : PlaceHolder};
+  color: ${props => (props.select ? TextColor : PlaceHolder)};
   font-size: 15px;
 `;
 
@@ -44,46 +54,53 @@ const LoadingView = styled.View`
   align-items: center;
 `;
 
-export default ({ navigation, filter, setFilter, data, userInfo, loading, setLoading }) => (
+export default ({
+  navigation,
+  filter,
+  setFilter,
+  data,
+  userInfo,
+  loading,
+  setLoading,
+}) => (
   <Container>
     <Inner>
       <FilterView>
-        <TouchableOpacity onPress={() => {
-          setLoading(true);
-          setFilter(true);
-        }}>
+        <TouchableOpacity
+          onPress={() => {
+            setLoading(true);
+            setFilter(true);
+          }}
+        >
           <FilterText select={filter}>진행중인 레이드</FilterText>
         </TouchableOpacity>
         <FilterLine />
-        <TouchableOpacity onPress={() => {
-          setLoading(true);
-          setFilter(false)
-        }}>
+        <TouchableOpacity
+          onPress={() => {
+            setLoading(true);
+            setFilter(false);
+          }}
+        >
           <FilterText select={!filter}>종료된 레이드</FilterText>
         </TouchableOpacity>
       </FilterView>
-      <ScrollView >
-        {
-          loading ? (
-            <LoadingView>
-              <ActivityIndicator 
-                size="large"
-                color={TextColor}
-              />
-            </LoadingView>
-          ) : (
-            data.map((item, index) => (
-              <RaidBox 
-                key={index}
-                data={item}
-                navigation={navigation}
-                myName={userInfo.nickname}
-                route={true}
-              />
-            ))
-          )
-        }
+      <ScrollView>
+        {loading ? (
+          <LoadingView>
+            <ActivityIndicator size="large" color={TextColor} />
+          </LoadingView>
+        ) : (
+          data.map((item, index) => (
+            <RaidBox
+              key={index}
+              data={item}
+              navigation={navigation}
+              myName={userInfo.nickname}
+              route={true}
+            />
+          ))
+        )}
       </ScrollView>
     </Inner>
   </Container>
-)
+);

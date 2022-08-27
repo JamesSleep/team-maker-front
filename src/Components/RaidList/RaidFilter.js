@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components/native";
-import { TextColor, TintColor, ButtonColor } from "../../Common/theme";
-import { ScrollView, TouchableOpacity, Image } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import { TextColor, TintColor, ButtonColor } from '../../common/theme';
+import { ScrollView, TouchableOpacity, Image } from 'react-native';
 
 const Container = styled.View`
   padding-bottom: 10px;
@@ -40,23 +40,23 @@ const FilterText = styled.Text`
 `;
 
 const FilterList = [
-  { name: "발탄", url: require("../../images/baltan_icon.png") },
-  { name: "비아키스", url: require("../../images/viakiss.png") },
-  { name: "쿠크세이튼", url: require("../../images/kukosaton_icon.png") },
-  { name: "아브렐슈드", url: require("../../images/abrellsude_icon.png") },
-  { name: "아르고스", url: require("../../images/argos_icon.png") },
-  { name: "기타", url: require("../../images/etc_icon.png") },
-]
+  { name: '발탄', url: require('../../images/baltan_icon.png') },
+  { name: '비아키스', url: require('../../images/viakiss.png') },
+  { name: '쿠크세이튼', url: require('../../images/kukosaton_icon.png') },
+  { name: '아브렐슈드', url: require('../../images/abrellsude_icon.png') },
+  { name: '아르고스', url: require('../../images/argos_icon.png') },
+  { name: '기타', url: require('../../images/etc_icon.png') },
+];
 
 export default ({ filter, setFilter }) => (
   <Container>
     {/* <Title>필터</Title> */}
     <ScrollView horizontal>
-      { FilterList.map((item, index) => (
-        <TouchableOpacity 
+      {FilterList.map((item, index) => (
+        <TouchableOpacity
           key={index}
           onPress={() => {
-            filter === item.name ? setFilter("") : setFilter(item.name)
+            filter === item.name ? setFilter('') : setFilter(item.name);
           }}
         >
           <FilterBox>
@@ -67,4 +67,4 @@ export default ({ filter, setFilter }) => (
       ))}
     </ScrollView>
   </Container>
-)
+);

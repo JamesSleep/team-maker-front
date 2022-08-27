@@ -1,12 +1,26 @@
-import React from "react";
-import styled from "styled-components/native";
-import { MainColor, TextColor, HeaderColor, _WIDTH, ButtonColor, TintColor } from "../../../../Common/theme";
-import MenuColumn from "../../../../Components/Setting/MenuColumn";
-import { TouchableOpacity, ScrollView, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Platform } from "react-native";
-import SelectLevel from "../../../../Components/DetailRaid/SelectLevel";
-import RaidTitle from "../../../../Components/DetailRaid/RaidTitle";
-import LeaderColumn from "../../../../Components/DetailRaid/LeaderColumn";
-import DateSetting from "../../../../Components/DetailRaid/DateSetting";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  MainColor,
+  TextColor,
+  HeaderColor,
+  _WIDTH,
+  ButtonColor,
+  TintColor,
+} from '../../../../common/theme';
+import MenuColumn from '../../../../components/Setting/MenuColumn';
+import {
+  TouchableOpacity,
+  ScrollView,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Platform,
+} from 'react-native';
+import SelectLevel from '../../../../components/DetailRaid/SelectLevel';
+import RaidTitle from '../../../../components/DetailRaid/RaidTitle';
+import LeaderColumn from '../../../../components/DetailRaid/LeaderColumn';
+import DateSetting from '../../../../components/DetailRaid/DateSetting';
 
 const Container = styled.View`
   width: 100%;
@@ -39,24 +53,39 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default ({ raid, data, setData, leader, loading, dateObj, calanderPage, setCalanderPage, postDataHandler }) => (
-  <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null}>
+export default ({
+  raid,
+  data,
+  setData,
+  leader,
+  loading,
+  dateObj,
+  calanderPage,
+  setCalanderPage,
+  postDataHandler,
+}) => (
+  <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
     <Container>
       <Inner>
         <ScrollView>
-          { !loading && (
+          {!loading && (
             <>
-              { raid !== "기타" && (
+              {raid !== '기타' && (
                 <SelectLevel raid={raid} option={data} setOption={setData} />
               )}
               <RaidTitle data={data} setData={setData} />
-              <LeaderColumn data={data} setData={setData} leader={leader} title={"공대장 정보"} />
-              <DateSetting 
-                dateObj={dateObj} 
-                page={calanderPage} 
-                setPage={setCalanderPage} 
-                data={data} 
-                setData={setData} 
+              <LeaderColumn
+                data={data}
+                setData={setData}
+                leader={leader}
+                title={'공대장 정보'}
+              />
+              <DateSetting
+                dateObj={dateObj}
+                page={calanderPage}
+                setPage={setCalanderPage}
+                data={data}
+                setData={setData}
               />
               <TouchableOpacity onPress={() => postDataHandler()}>
                 <Button>
@@ -69,4 +98,4 @@ export default ({ raid, data, setData, leader, loading, dateObj, calanderPage, s
       </Inner>
     </Container>
   </KeyboardAvoidingView>
-)
+);

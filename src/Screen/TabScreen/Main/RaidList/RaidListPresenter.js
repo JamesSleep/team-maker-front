@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components/native";
-import { MainColor, TextColor, HeaderColor } from "../../../../Common/theme";
-import { TouchableOpacity, ScrollView, RefreshControl } from "react-native";
-import RaidBox from "../../../../Components/RaidList/RaidBox";
-import RaidFilter from "../../../../Components/RaidList/RaidFilter";
+import React from 'react';
+import styled from 'styled-components/native';
+import {MainColor, TextColor, HeaderColor} from '../../../../common/theme';
+import {TouchableOpacity, ScrollView, RefreshControl} from 'react-native';
+import RaidBox from '../../../../components/RaidList/RaidBox';
+import RaidFilter from '../../../../components/RaidList/RaidFilter';
 
 const Container = styled.View`
   flex: 1;
@@ -34,35 +34,44 @@ const EmptyText = styled.Text`
   color: ${TextColor};
 `;
 
-export default ({ navigation, data=[], getData, filter, setFilter, nickname, refreshing, setRefreshing }) => (
+export default ({
+  navigation,
+  data = [],
+  getData,
+  filter,
+  setFilter,
+  nickname,
+  refreshing,
+  setRefreshing,
+}) => (
   <Container>
     <Inner>
       <RaidFilter filter={filter} setFilter={setFilter} />
       <ScrollView
         refreshControl={
-          <RefreshControl 
-            onRefresh={async() => {
+          <RefreshControl
+            onRefresh={async () => {
               setRefreshing(true);
               await getData();
               setRefreshing(false);
             }}
             refreshing={refreshing}
             enabled={false}
-            tintColor={"white"}
+            tintColor={'white'}
           />
         }
       >
-        { data.length < 1 && (
+        {data.length < 1 && (
           <Empty>
             <EmptyText>{`등록된 레이드가 없습니다\n`}</EmptyText>
             <EmptyText>새로운 레이드를 만들어보세요!</EmptyText>
           </Empty>
         )}
-        { data.map((item, index) => (
-          <RaidBox 
-            key={index} 
-            data={item} 
-            navigation={navigation} 
+        {data.map((item, index) => (
+          <RaidBox
+            key={index}
+            data={item}
+            navigation={navigation}
             myName={nickname}
           />
         ))}
@@ -70,4 +79,4 @@ export default ({ navigation, data=[], getData, filter, setFilter, nickname, ref
       </ScrollView>
     </Inner>
   </Container>
-)
+);

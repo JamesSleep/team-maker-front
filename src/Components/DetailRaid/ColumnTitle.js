@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components/native";
-import { _WIDTH, TextColor } from "../../Common/theme";
+import React from 'react';
+import styled from 'styled-components/native';
+import { _WIDTH, TextColor } from '../../common/theme';
 
 const Container = styled.View`
   margin-bottom: 20px;
@@ -16,4 +16,4 @@ export default ({ title }) => (
   <Container>
     <Text>{title}</Text>
   </Container>
-)
+);

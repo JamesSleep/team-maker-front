@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import TeamInfoPresenter from "./TeamInfoPresenter";
-import { userAPI } from "../../../../Common/api";
+import React, {useState, useEffect} from 'react';
+import TeamInfoPresenter from './TeamInfoPresenter';
+import {userAPI} from '../../../../common/api';
 
-export default ({ navigation, route }) => {
-  const { guild, nickname } = route.params.userInfo;
+export default ({navigation, route}) => {
+  const {guild, nickname} = route.params.userInfo;
   const [data, setData] = useState({
     loading: true,
-    list: null
+    list: null,
   });
 
   useEffect(() => {
@@ -17,16 +17,16 @@ export default ({ navigation, route }) => {
     const result = await userAPI.findGuild(guild);
     setData({
       loading: false,
-      list: result[1]
+      list: result[1],
     });
-  }
+  };
 
   return (
-    <TeamInfoPresenter 
+    <TeamInfoPresenter
       data={data.list}
       guild={guild}
       loading={data.loading}
       myName={nickname}
     />
-  )
-}
+  );
+};

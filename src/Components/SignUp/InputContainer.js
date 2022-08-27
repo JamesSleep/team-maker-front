@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components/native";
-import { _WIDTH, ButtonColor } from "../../Common/theme";
-import { Keyboard } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import { _WIDTH, ButtonColor } from '../../common/theme';
+import { Keyboard } from 'react-native';
 
 const Container = styled.View`
   width: 100%;
@@ -13,7 +13,7 @@ const InputView = styled.View`
   height: ${_WIDTH * 0.13}px;
   padding-left: 20px;
   margin-bottom: 35px;
-  border-color: #E42346;
+  border-color: #e42346;
   border-width: 1px;
   border-radius: 30px;
   flex-direction: column;
@@ -34,52 +34,55 @@ const ValidText = styled.Text`
 export default ({ data, setData, valid }) => (
   <Container>
     <InputView>
-      <TextInput 
+      <TextInput
         placeholder="이메일"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
         value={data.email}
-        onChangeText={text => setData("email", text)}
+        onChangeText={text => setData('email', text)}
         keyboardType={'email-address'}
       />
-      { !valid.email && (<ValidText>올바른 이메일 주소를 입력하세요.</ValidText>) }
+      {!valid.email && <ValidText>올바른 이메일 주소를 입력하세요.</ValidText>}
     </InputView>
     <InputView>
-      <TextInput 
+      <TextInput
         placeholder="비밀번호"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
         value={data.password}
-        onChangeText={text => setData("password", text)}
+        onChangeText={text => setData('password', text)}
         selectTextOnFocus={true}
         secureTextEntry={true}
         textContentType="oneTimeCode"
       />
-      { !valid.password && (<ValidText>비밀번호는 6~20자 사이여야 합니다.</ValidText>) }
-      
+      {!valid.password && (
+        <ValidText>비밀번호는 6~20자 사이여야 합니다.</ValidText>
+      )}
     </InputView>
     <InputView>
-      <TextInput 
+      <TextInput
         placeholder="비밀번호 확인"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
         value={data.passwordCheck}
-        onChangeText={text => setData("passwordCheck", text)}
+        onChangeText={text => setData('passwordCheck', text)}
         selectTextOnFocus={true}
         secureTextEntry={true}
         textContentType="oneTimeCode"
       />
-      { !valid.passwordCheck && (<ValidText>비밀번호가 일치하지 않습니다.</ValidText>) }
+      {!valid.passwordCheck && (
+        <ValidText>비밀번호가 일치하지 않습니다.</ValidText>
+      )}
     </InputView>
     <InputView>
-      <TextInput 
+      <TextInput
         placeholder="닉네임"
         placeholderTextColor="rgba(245,246,250, 0.5)"
         color="#e5e9f2"
         value={data.nickname}
-        onChangeText={text => setData("nickname", text)}
+        onChangeText={text => setData('nickname', text)}
       />
-      { !valid.nickCheck && (<ValidText>닉네임을 입력하세요.</ValidText>) }
+      {!valid.nickCheck && <ValidText>닉네임을 입력하세요.</ValidText>}
     </InputView>
   </Container>
-)
+);

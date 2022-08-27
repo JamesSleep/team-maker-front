@@ -1,15 +1,16 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import {NavigationContainer} from '@react-navigation/native';
-import StackRouter from './src/router/StackRouter';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {StatusBar, Platform} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import StackRouter from './src/routes/StackRouter';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar, Platform } from 'react-native';
+import { Navigator } from './src/routes/Navigator';
 
 const App = () => {
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
-    }, 3200);
+    }, 2000);
   });
 
   return (
@@ -19,9 +20,7 @@ const App = () => {
       ) : (
         <StatusBar barStyle="light-content" />
       )}
-      <NavigationContainer>
-        <StackRouter />
-      </NavigationContainer>
+      <Navigator />
     </SafeAreaProvider>
   );
 };

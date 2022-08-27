@@ -1,11 +1,18 @@
-import React from "react";
-import styled from "styled-components/native";
-import { HeaderColor, MainColor, ButtonColor, TextColor, SubColor, TintColor } from "../../../../Common/theme";
-import RaidInfoColumn from "../../../../Components/RaidDetail/RaidInfoColumn";
-import { ScrollView, TouchableOpacity, ActivityIndicator } from "react-native";
-import RaidMember from "../../../../Components/RaidDetail/RaidMember";
-import Modal from "react-native-modal";
-import LeaderColumn from "../../../../Components/DetailRaid/LeaderColumn";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  HeaderColor,
+  MainColor,
+  ButtonColor,
+  TextColor,
+  SubColor,
+  TintColor,
+} from '../../../../common/theme';
+import RaidInfoColumn from '../../../../components/RaidDetail/RaidInfoColumn';
+import { ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
+import RaidMember from '../../../../components/RaidDetail/RaidMember';
+import Modal from 'react-native-modal';
+import LeaderColumn from '../../../../components/DetailRaid/LeaderColumn';
 
 const Container = styled.View`
   flex: 1;
@@ -58,41 +65,46 @@ const ModalButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default ({ 
-  navigation, teamInfo, data, setData, loading, 
-  userInfo, joinInfo, setJoinInfo, visible, setVisible,
-  joinRaid, cancelRaid, joinCheck, deleteRaid, timestamp
+export default ({
+  navigation,
+  teamInfo,
+  data,
+  setData,
+  loading,
+  userInfo,
+  joinInfo,
+  setJoinInfo,
+  visible,
+  setVisible,
+  joinRaid,
+  cancelRaid,
+  joinCheck,
+  deleteRaid,
+  timestamp,
 }) => (
   <Container>
     <Inner>
-      { loading && (
-        <ActivityIndicator 
-          size="large"
-          color={TextColor}
-        />
-      )}
-      { !loading && (
+      {loading && <ActivityIndicator size="large" color={TextColor} />}
+      {!loading && (
         <ScrollView>
-          <RaidInfoColumn data={teamInfo}/>
-          { data.map((item, index) => (
-            <RaidMember 
-              key={index} 
-              raidInfo={item.raidInfo} 
-              userInfo={item.userInfo} 
+          <RaidInfoColumn data={teamInfo} />
+          {data.map((item, index) => (
+            <RaidMember
+              key={index}
+              raidInfo={item.raidInfo}
+              userInfo={item.userInfo}
               leader={teamInfo.leader}
             />
           ))}
-          { userInfo.nickname != teamInfo.leader ? (
+          {userInfo.nickname != teamInfo.leader ? (
             !timestamp && (
-              <TouchableOpacity onPress={() => {
-                joinCheck ?
-                cancelRaid() :
-                setVisible(true)
-              }}>
+              <TouchableOpacity
+                onPress={() => {
+                  joinCheck ? cancelRaid() : setVisible(true);
+                }}
+              >
                 <Button>
-                  <ButtonText>
-                    { joinCheck ? "파티탈퇴" : "참가신청" }
-                  </ButtonText>
+                  <ButtonText>{joinCheck ? '파티탈퇴' : '참가신청'}</ButtonText>
                 </Button>
               </TouchableOpacity>
             )
@@ -105,16 +117,18 @@ export default ({
           )}
           <Modal isVisible={visible}>
             <ModalView>
-              <LeaderColumn 
-                leader={userInfo} 
+              <LeaderColumn
+                leader={userInfo}
                 data={joinInfo}
                 setData={setJoinInfo}
-                title={"참가자 정보"}
+                title={'참가자 정보'}
               />
-              <TouchableOpacity onPress={() => {
-                setVisible(false);
-                joinRaid();
-              }}>
+              <TouchableOpacity
+                onPress={() => {
+                  setVisible(false);
+                  joinRaid();
+                }}
+              >
                 <ModalButton>
                   <ModalButtonText>신청완료</ModalButtonText>
                 </ModalButton>
@@ -125,4 +139,4 @@ export default ({
       )}
     </Inner>
   </Container>
-)
+);

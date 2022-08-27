@@ -1,8 +1,13 @@
-import React from "react";
-import styled from "styled-components/native";
-import { HeaderColor, MainColor, _WIDTH, TextColor } from "../../../../Common/theme";
-import { TouchableOpacity, ScrollView } from "react-native";
-import MemberColumn from "../../../../Components/Setting/MemberColumn";
+import React from 'react';
+import styled from 'styled-components/native';
+import {
+  HeaderColor,
+  MainColor,
+  _WIDTH,
+  TextColor,
+} from '../../../../common/theme';
+import { TouchableOpacity, ScrollView } from 'react-native';
+import MemberColumn from '../../../../components/Setting/MemberColumn';
 
 const Container = styled.View`
   flex: 1;
@@ -27,20 +32,16 @@ const TeamName = styled.Text`
 export default ({ loading, data, guild, myName }) => (
   <Container>
     <Inner>
-      { !loading && (
+      {!loading && (
         <>
-        <TeamName>{guild}</TeamName>
-        <ScrollView>
-          { data.map((item, index) => (
-            <MemberColumn 
-              key={index} 
-              data={item.nickname} 
-              myName={myName}
-            />
-          )) }
-        </ScrollView>
+          <TeamName>{guild}</TeamName>
+          <ScrollView>
+            {data.map((item, index) => (
+              <MemberColumn key={index} data={item.nickname} myName={myName} />
+            ))}
+          </ScrollView>
         </>
       )}
     </Inner>
   </Container>
-)
+);
