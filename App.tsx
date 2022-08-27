@@ -5,6 +5,8 @@ import StackRouter from './src/routes/StackRouter';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar, Platform } from 'react-native';
 import { Navigator } from './src/routes/Navigator';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 const App = () => {
   useEffect(() => {
@@ -20,7 +22,9 @@ const App = () => {
       ) : (
         <StatusBar barStyle="light-content" />
       )}
-      <Navigator />
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
     </SafeAreaProvider>
   );
 };
