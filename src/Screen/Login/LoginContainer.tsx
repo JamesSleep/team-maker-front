@@ -1,5 +1,9 @@
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
-import { LoginScreenProps } from '../../routes/LoginRouter';
+import {
+  LoginScreenProps,
+  LoginStackParamsList,
+} from '../../routes/LoginRouter';
 import { LoginPresenter } from './LoginPresenter';
 
 interface ILoginData {
@@ -13,6 +17,11 @@ export interface ILoginPage {
     key: K,
     value: ILoginData[K],
   ) => void;
+  navigation: NativeStackNavigationProp<
+    LoginStackParamsList,
+    keyof LoginStackParamsList,
+    undefined
+  >;
 }
 
 export const LoginContainer = ({ navigation }: LoginScreenProps) => {
@@ -28,5 +37,11 @@ export const LoginContainer = ({ navigation }: LoginScreenProps) => {
     setData({ ...data, [key]: value });
   };
 
-  return <LoginPresenter data={data} setProperty={setProperty} />;
+  return (
+    <LoginPresenter
+      data={data}
+      setProperty={setProperty}
+      navigation={navigation}
+    />
+  );
 };

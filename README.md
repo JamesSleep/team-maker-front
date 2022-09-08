@@ -1,21 +1,21 @@
+현재 리팩토링 작업중입니다.
+
 # TEAM MAKER
 
 로스트아크 레이드매칭 시스템입니다.
 
 특정 모임이나 길드 내부 사람들끼리 편하게 파티모집이 가능하도록 설계되었습니다.
 
- 
 ## 작업환경
 
 - OS: Mac OS
 - Editor: VS Code
 
-
 ## 기술스택
 
 - FrontEnd: <code>React Native</code> <code>styled-components</code>
 - BackEnd: <code>NestJS</code> <code>Typescript</code>
-- BackEndRepository: [BackEnd][BackLink]
+- BackEndRepository: [BackEnd][backlink]
 - Server: <code>Amazon EC2</code>
 - DB: <code>Amazon MySQL</code>
 
@@ -27,11 +27,9 @@
 
 게임내에 많은 컨텐츠에 대한 스케쥴정리가 힘들어 만들게되었습니다.
 
-
 ## 제작기간
 
 - 2021년 11월 2일 ~ 2021년 12월 20일
-
 
 ## 주요기능 (항목별 링크를 눌러주세요)
 
@@ -72,14 +70,14 @@
 </details>
 
 ## 테스트APK
+
 - 플레이스토어 등록 심사중이라 APK파일로 대체하였습니다.
 - APK파일: [APK Release][apklink]
 
 ## 테스트계정
+
 - ID: test01 ~ test10
 - PW: 1234
 
-
-
-[BackLink]: https://github.com/JamesSleep/team-maker-backend "Go Back"
+[backlink]: https://github.com/JamesSleep/team-maker-backend 'Go Back'
 [apklink]: https://drive.google.com/drive/folders/1A-Bn0iCmdYqxV70NjDVcDSDTobYH4yGO?usp=sharing
