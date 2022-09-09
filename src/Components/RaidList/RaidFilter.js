@@ -40,12 +40,18 @@ const FilterText = styled.Text`
 `;
 
 const FilterList = [
-  { name: '발탄', url: require('../../images/baltan_icon.png') },
-  { name: '비아키스', url: require('../../images/viakiss.png') },
-  { name: '쿠크세이튼', url: require('../../images/kukosaton_icon.png') },
-  { name: '아브렐슈드', url: require('../../images/abrellsude_icon.png') },
-  { name: '아르고스', url: require('../../images/argos_icon.png') },
-  { name: '기타', url: require('../../images/etc_icon.png') },
+  { name: '발탄', url: require('../../assets/images/baltan_icon.png') },
+  { name: '비아키스', url: require('../../assets/images/viakiss.png') },
+  {
+    name: '쿠크세이튼',
+    url: require('../../assets/images/kukosaton_icon.png'),
+  },
+  {
+    name: '아브렐슈드',
+    url: require('../../assets/images/abrellsude_icon.png'),
+  },
+  { name: '아르고스', url: require('../../assets/images/argos_icon.png') },
+  { name: '기타', url: require('../../assets/images/etc_icon.png') },
 ];
 
 export default ({ filter, setFilter }) => (

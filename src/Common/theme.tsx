@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native';
 
-export const WIDTH = Dimensions.get('window').width;
-export const HEIGHT = Dimensions.get('window').height;
+export const WIDTH = Dimensions.get('screen').width;
+export const HEIGHT = Dimensions.get('screen').height;
 export const ButtonColor = '#E42346';
 export const TextColor = '#e5e9f2';
 export const MainColor = '#1C1E2A';

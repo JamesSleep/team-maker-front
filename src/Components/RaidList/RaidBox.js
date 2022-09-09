@@ -95,12 +95,12 @@ const CountText = styled.Text`
 `;
 
 const IconList = {
-  발탄: require('../../images/baltan_icon.png'),
-  비아키스: require('../../images/viakiss.png'),
-  쿠크세이튼: require('../../images/kukosaton_icon.png'),
-  아브렐슈드: require('../../images/abrellsude_icon.png'),
-  아르고스: require('../../images/argos_icon.png'),
-  기타: require('../../images/etc_icon.png'),
+  발탄: require('../../assets/images/baltan_icon.png'),
+  비아키스: require('../../assets/images/viakiss.png'),
+  쿠크세이튼: require('../../assets/images/kukosaton_icon.png'),
+  아브렐슈드: require('../../assets/images/abrellsude_icon.png'),
+  아르고스: require('../../assets/images/argos_icon.png'),
+  기타: require('../../assets/images/etc_icon.png'),
 };
 
 export default ({ data, navigation, myName, route }) => (

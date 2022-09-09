@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import TitleView from '../../../components/Login/TitleView';
 import InputContainer from '../../../components/Login/InputContainer';
 import OptionContainer from '../../../components/Login/OptionContainer';
-import {_WIDTH, ButtonColor, TextColor} from '../../../common/theme';
+import { _WIDTH, ButtonColor, TextColor } from '../../../common/theme';
 import {
   TouchableWithoutFeedback,
   Keyboard,
@@ -66,7 +66,7 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export default ({navigation, postLoginData, data, setData}) => (
+export default ({ navigation, postLoginData, data, setData }) => (
   <KeyboardAvoidingView
     behavior={Platform.OS === 'ios' ? 'padding' : null}
     keyboardVerticalOffset={-_WIDTH * 0.1}
@@ -74,7 +74,7 @@ export default ({navigation, postLoginData, data, setData}) => (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
         <IamgeView>
-          <Image source={require('../../../images/loginback.png')} />
+          <Image source={require('../../../assets/images/loginback.png')} />
         </IamgeView>
         <Cover>
           <TitleView />
