@@ -1,5 +1,15 @@
 import React from 'react';
-import { KeyboardAvoidingView, Text, View } from 'react-native';
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
+import ButtonView from './components/ButtonView';
+import FindView from './components/FindView';
+import InputView from './components/InputView';
 import TitleView from './components/TitleView';
 import { ILoginPage } from './LoginContainer';
 import { LoginStyles } from './styles/login.styles';
@@ -15,14 +25,26 @@ const {
 } = LoginStyles;
 
 export const LoginPresenter = (props: ILoginPage) => (
-  <KeyboardAvoidingView>
-    <Container>
-      <ImageView>
-        <Image source={require('../../assets/images/loginback.png')} />
-      </ImageView>
-      <Cover>
-        <TitleView />
-      </Cover>
-    </Container>
-  </KeyboardAvoidingView>
+  <Container>
+    <ImageView>
+      <Image source={require('../../assets/images/loginback.png')} />
+    </ImageView>
+    <KeyboardAvoidingView
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+      }}
+      behavior={Platform.OS === 'ios' ? 'position' : undefined}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Cover>
+          <TitleView />
+          <InputView {...props} />
+          <ButtonView {...props} />
+          <FindView {...props} />
+        </Cover>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
+  </Container>
 );

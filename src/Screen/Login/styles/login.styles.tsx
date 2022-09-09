@@ -1,6 +1,6 @@
 import { Image, Text, TextInput, View } from 'react-native';
 import styled from 'styled-components/native';
-import { WIDTH } from '../../../common/theme';
+import { TextColor, WIDTH } from '../../../common/theme';
 
 interface LoginStylesProps {
   color: string;
@@ -12,17 +12,14 @@ export const LoginStyles = {
     height: 100%;
   `,
   Cover: styled(View)`
-    flex: 1;
-    position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
     justify-content: flex-end;
     align-items: center;
     padding-left: ${WIDTH * 0.1}px;
     padding-right: ${WIDTH * 0.1}px;
-    padding-bottom: ${WIDTH * 0.25}px;
+    padding-bottom: ${WIDTH * 0.15}px;
   `,
   ImageView: styled(View)`
     width: 100%;
@@ -70,7 +67,7 @@ export const LoginStyles = {
     height: 70px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   `,
   Button: styled(View)<LoginStylesProps>`
     width: ${WIDTH * 0.8}px;
@@ -84,5 +81,15 @@ export const LoginStyles = {
     color: ${({ color }) => color};
     font-size: ${WIDTH * 0.05}px;
     font-weight: bold;
+  `,
+  FindContainer: styled(View)`
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  `,
+  FindText: styled(Text)`
+    color: ${TextColor};
+    font-size: ${WIDTH * 0.04}px;
   `,
 };
